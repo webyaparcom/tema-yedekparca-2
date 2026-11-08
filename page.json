@@ -1,0 +1,174 @@
+{
+  "data": [
+    {
+      "name": {
+        "tr": "Ürünler",
+        "en": "Products",
+        "ar": "المنتجات"
+      },
+      "status": "play",
+      "category": "",
+      "id": "hs54qzyeyo",
+      "url": "",
+      "path": "urunler",
+      "index": 0,
+      "icon": "build",
+      "desing": {
+        "header": [],
+        "body": [
+          "35tq7o",
+          "6h1eeq",
+          "qt1jzt"
+        ],
+        "footer": []
+      },
+      "pathnext": "",
+      "description": {
+        "tr": "Parçalar «OEM» (araç üreticisinin onayladığı) ya da «eşdeğer» olarak açıkça etiketlenir; «orijinal» ibaresi yalnızca OEM parçada kullanılır.",
+        "en": "Parts are clearly labelled “OEM” (approved by the vehicle manufacturer) or “equivalent”; the word “original” is used only for OEM parts.",
+        "ar": "تُوسَم القطع بوضوح بأنها «OEM» (معتمدة من مصنّع المركبة) أو «مكافئة»؛ ولا تُستخدم كلمة «أصلية» إلا للقطع OEM."
+      }
+    },
+    {
+      "id": "mk5j5wbjnv",
+      "name": {
+        "tr": "Stok Sor",
+        "en": "Ask About Stock",
+        "ar": "استعلم عن المخزون"
+      },
+      "description": {
+        "tr": "Parça grubunu ve uygun günü seçin; talebiniz bu demo sitede yalnızca tarayıcınızda oluşturulur.",
+        "en": "Choose a part group and a convenient day; on this demo site your request is created only in your browser.",
+        "ar": "اختر مجموعة القطعة واليوم المناسب؛ يُنشأ طلبك في متصفحك فقط."
+      },
+      "path": "stok-sor",
+      "icon": "inventory",
+      "category": "",
+      "status": "play",
+      "desing": {
+        "header": [],
+        "body": [
+          "0scf34"
+        ],
+        "footer": []
+      },
+      "index": 1
+    },
+    {
+      "id": "izrsfkr8lt",
+      "name": {
+        "tr": "Garanti ve İade",
+        "en": "Warranty and Returns",
+        "ar": "الضمان والإرجاع"
+      },
+      "description": {
+        "tr": "OEM / eşdeğer etiketleme, iade ve garanti koşulları.",
+        "en": "OEM / equivalent labelling, returns and warranty terms.",
+        "ar": "وسم OEM / مكافئ وشروط الإرجاع والضمان."
+      },
+      "path": "garanti-iade",
+      "icon": "assignment_return",
+      "category": "",
+      "status": "play",
+      "desing": {
+        "header": [],
+        "body": [
+          "hur1iw"
+        ],
+        "footer": []
+      },
+      "index": 2
+    },
+    {
+      "id": "j6ytbln0u8",
+      "name": {
+        "tr": "Galeri",
+        "en": "Gallery",
+        "ar": "المعرض"
+      },
+      "description": {
+        "tr": "Parça grupları ve depo görüntüleri; markasızdır.",
+        "en": "Part groups and warehouse images; unbranded.",
+        "ar": "صور مجموعات القطع والمستودع؛ بدون علامات تجارية."
+      },
+      "path": "galeri",
+      "icon": "photo_library",
+      "category": "",
+      "status": "play",
+      "desing": {
+        "header": [],
+        "body": [
+          "zd6ct5"
+        ],
+        "footer": []
+      },
+      "index": 3
+    },
+    {
+      "id": "dd62ucov2g",
+      "name": {
+        "tr": "Hakkımızda",
+        "en": "About",
+        "ar": "من نحن"
+      },
+      "description": {
+        "tr": "Mavi Dingil Oto Parça, servislere ve bireysel müşterilere doğru parçayı doğru etiketle ulaştırmayı ilke edinen kurgusal bir demo firmadır. Bu sitedeki ürünler, adresler ve bilgiler kurgusaldır.",
+        "en": "Mavi Dingil Auto Parts is a fictional demo company whose principle is to deliver the right part with the right label to workshops and individual customers. Products, addresses and details on this site are fictional.",
+        "ar": "مافي دينغيل لقطع غيار السيارات شركة تجريبية افتراضية مبدؤها إيصال القطعة الصحيحة بالوسم الصحيح إلى الورش والعملاء الأفراد. المنتجات والعناوين والبيانات في هذا الموقع افتراضية."
+      },
+      "path": "hakkimizda",
+      "icon": "info",
+      "category": "",
+      "status": "play",
+      "desing": {
+        "header": [],
+        "body": [
+          "ln753z",
+          "8l0lo5"
+        ],
+        "footer": []
+      },
+      "index": 4
+    },
+    {
+      "name": {
+        "tr": "İletişim",
+        "en": "Contact",
+        "ar": "اتصل بنا"
+      },
+      "status": "play",
+      "category": "",
+      "id": "xnzu5au0ag",
+      "url": "",
+      "path": "iletisim",
+      "index": 5,
+      "icon": "call",
+      "desing": {
+        "header": [],
+        "body": [
+          "t7ct01",
+          "t7mp01"
+        ],
+        "footer": []
+      },
+      "pathnext": "",
+      "description": {
+        "tr": "Adres, telefon, e-posta ve çalışma saatleri.",
+        "en": "Address, phone, e-mail and opening hours.",
+        "ar": "العنوان والهاتف والبريد الإلكتروني وساعات العمل."
+      }
+    }
+  ],
+  "desc": [],
+  "desing": {
+    "header": [],
+    "body": [],
+    "footer": []
+  },
+  "modulestatus": {
+    "page": true,
+    "bgimg": true,
+    "detail": true,
+    "body": true
+  }
+}

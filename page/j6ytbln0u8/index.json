@@ -1,0 +1,39 @@
+{
+  "id": "j6ytbln0u8",
+  "name": {
+    "tr": "Galeri",
+    "en": "Gallery",
+    "ar": "المعرض"
+  },
+  "description": {
+    "tr": "Parça grupları ve depo görüntüleri; markasızdır.",
+    "en": "Part groups and warehouse images; unbranded.",
+    "ar": "صور مجموعات القطع والمستودع؛ بدون علامات تجارية."
+  },
+  "keyword": {
+    "tr": "galeri, fotoğraf",
+    "en": "gallery, photos",
+    "ar": "معرض، صور"
+  },
+  "path": "galeri",
+  "icon": "photo_library",
+  "category": "",
+  "status": "play",
+  "desing": {
+    "header": [],
+    "body": [
+      "zd6ct5"
+    ],
+    "footer": []
+  },
+  "index": 3,
+  "url": "",
+  "text": {},
+  "title": {
+    "tr": "Galeri",
+    "en": "Gallery",
+    "ar": "المعرض"
+  },
+  "date": "2026-10-31T14:53:33.041Z",
+  "update": "2026-10-31T14:53:33.043Z"
+}

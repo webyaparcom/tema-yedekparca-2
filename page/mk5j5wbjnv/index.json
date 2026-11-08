@@ -1,0 +1,39 @@
+{
+  "id": "mk5j5wbjnv",
+  "name": {
+    "tr": "Stok Sor",
+    "en": "Ask About Stock",
+    "ar": "استعلم عن المخزون"
+  },
+  "description": {
+    "tr": "Parça grubunu ve uygun günü seçin; talebiniz bu demo sitede yalnızca tarayıcınızda oluşturulur.",
+    "en": "Choose a part group and a convenient day; on this demo site your request is created only in your browser.",
+    "ar": "اختر مجموعة القطعة واليوم المناسب؛ يُنشأ طلبك في متصفحك فقط."
+  },
+  "keyword": {
+    "tr": "oto yedek parça, fren, filtre, OEM",
+    "en": "auto parts, brakes, filters, OEM",
+    "ar": "قطع غيار سيارات، فرامل، فلاتر، OEM"
+  },
+  "path": "stok-sor",
+  "icon": "inventory",
+  "category": "",
+  "status": "play",
+  "desing": {
+    "header": [],
+    "body": [
+      "0scf34"
+    ],
+    "footer": []
+  },
+  "index": 1,
+  "url": "",
+  "text": {},
+  "title": {
+    "tr": "Stok Sor",
+    "en": "Ask About Stock",
+    "ar": "استعلم عن المخزون"
+  },
+  "date": "2026-10-31T14:53:33.038Z",
+  "update": "2026-10-31T14:53:33.040Z"
+}

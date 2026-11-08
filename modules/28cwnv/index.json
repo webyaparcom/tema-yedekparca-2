@@ -1,0 +1,54 @@
+{
+  "name": "Footer 9 — Kurumsal",
+  "desing": {
+    "showlang": true,
+    "maxpages": 8,
+    "bgcolor": "var(--mx-site-surface-2, #1f2937)",
+    "color": "var(--mx-site-text, #f3f4f6)",
+    "mutedcolor": "color-mix(in srgb, var(--mx-site-text, #f3f4f6) 72%, transparent)",
+    "accent": "var(--mx-site-primary, #2563eb)",
+    "bordercolor": "color-mix(in srgb, var(--mx-site-text, #f3f4f6) 18%, transparent)",
+    "logo_maxh": "56px",
+    "logo_plate": false,
+    "about": {
+      "tr": "Kurumsal çözümler ve güvenilir hizmet.",
+      "en": "Corporate solutions and reliable service.",
+      "ar": "حلول مؤسسية وخدمة موثوقة."
+    },
+    "title_pages": {
+      "tr": "Sayfalar",
+      "en": "Pages",
+      "ar": "الصفحات"
+    },
+    "title_contact": {
+      "tr": "İletişim",
+      "en": "Contact",
+      "ar": "اتصل بنا"
+    },
+    "title_social": {
+      "tr": "Bizi Takip Edin",
+      "en": "Follow Us",
+      "ar": "تابعنا"
+    },
+    "address": "",
+    "phone": "",
+    "email": "",
+    "social": [],
+    "legal": [],
+    "rightsText": {
+      "tr": "Tüm hakları saklıdır.",
+      "en": "All rights reserved.",
+      "ar": "جميع الحقوق محفوظة."
+    }
+  },
+  "category": "footer",
+  "data": [],
+  "description": "Kurumsal alt bilgi (footer): 4 sütun — marka (logo + kısa metin), sayfalar, iletişim (address/phone/email; boşsa setting.phone/email, hiçbiri yoksa sütun gizli), sosyal (social: [{ad,url}]; boşsa gizli). Alt şerit: telif (yıl otomatik), yasal bağlantılar (legal: [{text,href}], dil önekli), dil seçici. Renkler yalnız desing anahtarı + var(--mx-site-*, fallback): token'sız sitede fallback, colorScheme:auto sitede koyu mod uyumlu. logo_maxh / logo_plate footer-3 ile aynı.",
+  "version": "1.0.0",
+  "icon": "footer",
+  "veri": {
+    "statik": true,
+    "dinamik": false,
+    "kaynak": "desing/data"
+  }
+}

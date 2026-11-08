@@ -1,0 +1,99 @@
+{
+  "name": {
+    "tr": "Hero 4 — Bölünmüş",
+    "en": "Hero 4 — Split",
+    "ar": "هيرو 4 — مقسّم"
+  },
+  "description": {
+    "tr": "İki sütunlu hero: solda üst etiket, h1, paragraf, iki CTA (dolgu + çerçeve) ve güven satırı (data[]: ikon + metin); sağda görsel, arkasında token renkli organik şekil ve yüzen istatistik rozeti. desing.stil: blob | kare-kesit | cerceveli. Mobilde görsel üstte. Renkler yalnız desing anahtarı + var(--mx-site-*) — koyu mod otomatik. Üç dil + RTL.",
+    "en": "Two-column hero: eyebrow, h1, paragraph, two CTAs (filled + outline) and a trust row (data[]: icon + text) on the start side; image with a token-coloured organic shape and a floating stat badge on the end side. desing.stil: blob | kare-kesit | cerceveli. Image stacks on top on mobile. Colours come only from desing keys + var(--mx-site-*) — dark mode automatic. Three languages + RTL.",
+    "ar": "هيرو بعمودين: تسمية علوية وعنوان h1 وفقرة وزرّان (ممتلئ + إطار) وسطر الثقة (data[]: أيقونة + نص) في جهة البداية؛ صورة خلفها شكل عضوي بلون الرمز وشارة إحصائية عائمة في جهة النهاية. desing.stil: blob | kare-kesit | cerceveli. على الجوال تظهر الصورة أولًا. الألوان من مفاتيح desing و var(--mx-site-*) فقط — الوضع الداكن تلقائي. ثلاث لغات + RTL."
+  },
+  "version": "1.0.0",
+  "icon": "view_sidebar",
+  "category": "hero",
+  "tags": ["hero", "split", "bolunmus", "cta", "guven", "blob", "ar"],
+  "desing": {
+    "stil": "blob",
+    "max": "1200px",
+    "bg": "var(--mx-site-bg, #ffffff)",
+    "surface": "var(--mx-site-surface, #f6f6f4)",
+    "text": "var(--mx-site-text, #1b1b1b)",
+    "muted": "color-mix(in srgb, var(--mx-site-text, #1b1b1b) 72%, var(--mx-site-bg, #ffffff))",
+    "accent": "var(--mx-site-primary, #2563eb)",
+    "accentText": "var(--mx-site-primary-contrast, #ffffff)",
+    "border": "color-mix(in srgb, var(--mx-site-text, #1b1b1b) 14%, transparent)",
+    "radius": "20px",
+    "eyebrow": {
+      "tr": "Kurumsal çözüm ortağınız",
+      "en": "Your corporate solution partner",
+      "ar": "شريككم في الحلول المؤسسية"
+    },
+    "title": {
+      "tr": "İşinizi büyüten güvenilir hizmet",
+      "en": "Reliable service that grows your business",
+      "ar": "خدمة موثوقة تنمّي أعمالكم"
+    },
+    "metin": {
+      "tr": "Uzman ekibimizle planlamadan teslime kadar her adımda yanınızdayız. Şeffaf süreç, ölçülebilir sonuç.",
+      "en": "Our expert team stands with you at every step, from planning to delivery. Transparent process, measurable results.",
+      "ar": "فريقنا المتخصص معكم في كل خطوة من التخطيط إلى التسليم. عملية شفافة ونتائج قابلة للقياس."
+    },
+    "cta1": {
+      "tr": "Teklif alın",
+      "en": "Get a quote",
+      "ar": "اطلب عرض سعر"
+    },
+    "cta1_url": "iletisim",
+    "cta2": {
+      "tr": "Hizmetleri inceleyin",
+      "en": "Explore services",
+      "ar": "استعرض الخدمات"
+    },
+    "cta2_url": "hizmetler",
+    "img": "",
+    "alt": {
+      "tr": "Ekibimiz çalışırken",
+      "en": "Our team at work",
+      "ar": "فريقنا أثناء العمل"
+    },
+    "badge_icon": "trending_up",
+    "badge_value": "%98",
+    "badge_label": {
+      "tr": "Müşteri memnuniyeti",
+      "en": "Customer satisfaction",
+      "ar": "رضا العملاء"
+    }
+  },
+  "data": [
+    {
+      "icon": "groups",
+      "text": {
+        "tr": "500+ mutlu müşteri",
+        "en": "500+ happy clients",
+        "ar": "+500 عميل راضٍ"
+      }
+    },
+    {
+      "icon": "support_agent",
+      "text": {
+        "tr": "7/24 destek",
+        "en": "24/7 support",
+        "ar": "دعم على مدار الساعة"
+      }
+    },
+    {
+      "icon": "verified",
+      "text": {
+        "tr": "Belgeli kalite",
+        "en": "Certified quality",
+        "ar": "جودة معتمدة"
+      }
+    }
+  ],
+  "veri": {
+    "statik": true,
+    "dinamik": false,
+    "kaynak": "desing/data"
+  }
+}

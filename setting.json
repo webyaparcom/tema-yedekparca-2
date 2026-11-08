@@ -1,0 +1,57 @@
+{
+  "order": false,
+  "user": false,
+  "description": {
+    "tr": "Mavi Dingil Oto Parça: fren, filtre, motor ve süspansiyon parçaları; OEM ve eşdeğer parça açıkça etiketli, stok sorma. (Demo site)",
+    "en": "Mavi Dingil Auto Parts: brake, filter, engine and suspension parts; OEM and equivalent parts clearly labelled, stock enquiries. (Demo site)",
+    "ar": "مافي دينغيل لقطع غيار السيارات: قطع الفرامل والفلاتر والمحرك والتعليق مع وسم واضح للقطع OEM والمكافئة وطلب الاستعلام عن المخزون. (موقع تجريبي)"
+  },
+  "keyword": {
+    "tr": "oto yedek parça, fren, filtre, OEM",
+    "en": "auto parts, brakes, filters, OEM",
+    "ar": "قطع غيار سيارات، فرامل، فلاتر، OEM"
+  },
+  "category": "Kurumsal",
+  "name": "Mavi Dingil Oto Parça",
+  "domain": "yedekparca-2.webyapar.com",
+  "langs": {
+    "tr": true,
+    "en": true,
+    "ar": true,
+    "de": false,
+    "ru": false,
+    "es": false,
+    "fr": false,
+    "it": false,
+    "ja": false,
+    "zh": false,
+    "ko": false,
+    "pt": false
+  },
+  "logo": "logo.png",
+  "multi": false,
+  "icon": "icon.png",
+  "theme_color": "#1E40AF",
+  "publishMode": "static",
+  "font": {
+    "body": "source-sans-3",
+    "heading": "montserrat",
+    "ar": {
+      "body": "ibm-plex-sans-arabic",
+      "heading": "noto-kufi-arabic"
+    }
+  },
+  "phone": "+90 342 000 00 00",
+  "email": "stok@mavidingil.example",
+  "colorScheme": "auto",
+  "seo": {
+    "noindex": true
+  },
+  "cssTokens": {
+    "--mx-radius-sm": "6px",
+    "--mx-radius-md": "10px",
+    "--mx-radius-lg": "14px",
+    "--mx-radius-xl": "19px",
+    "--mx-shadow-md": "0 1px 2px rgba(0,0,0,.06)"
+  }
+}

@@ -1,0 +1,243 @@
+<footer class="modulex-f9" role="contentinfo">
+  <div class="modulex-f9__main">
+    <div class="modulex-f9__col modulex-f9__brand">
+      <a href="/{{lang}}/" class="modulex-f9__logo" aria-label="@home@ - {{web-name}}">
+        <img src="/img/{{logo}}" alt="{{web-name}} Logo" loading="lazy" />
+      </a>
+      <p class="modulex-f9__about">{{about}}</p>
+    </div>
+    <nav class="modulex-f9__col modulex-f9__pages" aria-label="@navigation@">
+      <h3 class="modulex-f9__title">{{title_pages}}</h3>
+      <ul class="modulex-f9__list">
+        {{html}}
+      </ul>
+    </nav>
+    {{contacthtml}}
+    {{socialhtml}}
+  </div>
+  <div class="modulex-f9__bottom">
+    <p class="modulex-f9__rights">&copy; {{year}} {{web-name}}. {{rightsText}}</p>
+    {{legalhtml}}
+    {{langbar}}
+  </div>
+</footer>
+<style>
+  /* Footer 9 — Kurumsal (31 Eki 2026). Renkler yalnız desing anahtarından gelir; anahtarların varsayılanı
+     var(--mx-site-*, <fallback>) biçimindedir: token'sız müşteri sitesinde fallback, colorScheme:"auto" sitede palet (koyu mod dahil). */
+  .modulex-f9 {
+    width: 100%;
+    background: --bgcolor--;
+    color: --color--;
+    border-top: 4px solid --accent--;
+    padding-block: 48px 20px;
+    padding-inline: 20px;
+    box-sizing: border-box;
+  }
+
+  .modulex-f9__main {
+    display: grid;
+    /* 31 Eki 2026: marka sütunu geniş; `1.6fr repeat(auto-fit…)` GEÇERSİZ (auto-fit sabit track'le birleşmez → grid düştü, sütunlar yığıldı) */
+    grid-template-columns: 1.6fr 1fr 1fr 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin-inline: auto;
+  }
+  .modulex-f9__main--c3 { grid-template-columns: 1.6fr 1fr 1fr; }
+  .modulex-f9__main--c2 { grid-template-columns: 1.6fr 1fr; }
+
+  .modulex-f9__col {
+    min-width: 0;
+  }
+
+  .modulex-f9__title {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 14px;
+    color: --color--;
+    letter-spacing: 0.02em;
+  }
+
+  /* Logo oranı: height:auto + max-height; HTML width/height attr yalnız ipucu. */
+  .modulex-f9__logo {
+    display: inline-flex;
+    align-items: center;
+    max-width: 100%;
+    margin-bottom: 14px;
+    text-decoration: none;
+  }
+
+  .modulex-f9__logo img {
+    display: block;
+    height: auto;
+    width: auto;
+    max-height: --logo_maxh--;
+    max-width: 220px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  /* logo_plate:true → koyu logo koyu zeminde okunur (plaka bilerek sabit beyaz: logonun kendi renklerini korur) */
+  .modulex-f9__logo--plate {
+    background: #fff;
+    border-radius: 8px;
+    padding: 6px 12px;
+  }
+
+  .modulex-f9__about {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: --mutedcolor--;
+    max-width: 36ch;
+  }
+
+  .modulex-f9__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .modulex-f9__list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    font-size: 14px;
+    line-height: 1.5;
+    color: --mutedcolor--;
+  }
+
+  .modulex-f9__list .material-symbols-outlined {
+    font-size: 18px;
+    line-height: 1.5;
+    color: --accent--;
+    flex-shrink: 0;
+  }
+
+  .modulex-f9 a.modulex-f9__link:link,
+  .modulex-f9 a.modulex-f9__link:visited {
+    color: --mutedcolor--;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .modulex-f9 a.modulex-f9__link:hover,
+  .modulex-f9 a.modulex-f9__link:focus-visible {
+    color: --color--;
+    text-decoration: underline;
+    outline-color: currentColor;
+  }
+
+  .modulex-f9__social {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .modulex-f9 a.modulex-f9__chip:link,
+  .modulex-f9 a.modulex-f9__chip:visited {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 13px;
+    color: --color--;
+    text-decoration: none;
+    border: 1px solid --bordercolor--;
+    background: color-mix(in srgb, currentColor 6%, transparent);
+    transition: background-color 0.2s ease;
+  }
+
+  .modulex-f9 a.modulex-f9__chip:hover,
+  .modulex-f9 a.modulex-f9__chip:focus-visible {
+    background: color-mix(in srgb, --accent-- 18%, transparent);
+    color: --color--;
+    outline-color: currentColor;
+  }
+
+  .modulex-f9__bottom {
+    max-width: 1200px;
+    margin: 36px auto 0;
+    padding-top: 18px;
+    border-top: 1px solid --bordercolor--;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px 20px; /* mobilde komşu bloklar (telif · yasal · dil) arası ≥12px */
+    font-size: 13px;
+  }
+
+  .modulex-f9__rights {
+    margin: 0;
+    color: --mutedcolor--;
+  }
+
+  .modulex-f9__legal {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+  }
+
+  .modulex-f9__bottom .wm-langbar ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  @media (max-width: 1024px) {
+    .modulex-f9__main {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 768px) {
+    .modulex-f9 {
+      padding-block: 36px 16px;
+    }
+
+    .modulex-f9__main {
+      gap: 28px;
+    }
+
+    .modulex-f9__bottom {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 14px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .modulex-f9__main {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
+  /* W2: mobil tasma kontrolu */
+  @media (max-width: 768px) {
+    [class*="modulex"] {
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+  }
+
+  /* W2: erisilebilirlik — animasyon kapatma */
+  @media (prefers-reduced-motion: reduce) {
+    [class*="modulex"],
+    [class*="modulex"] * {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+</style>

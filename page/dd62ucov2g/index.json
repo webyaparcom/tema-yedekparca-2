@@ -1,0 +1,40 @@
+{
+  "id": "dd62ucov2g",
+  "name": {
+    "tr": "Hakkımızda",
+    "en": "About",
+    "ar": "من نحن"
+  },
+  "description": {
+    "tr": "Mavi Dingil Oto Parça, servislere ve bireysel müşterilere doğru parçayı doğru etiketle ulaştırmayı ilke edinen kurgusal bir demo firmadır. Bu sitedeki ürünler, adresler ve bilgiler kurgusaldır.",
+    "en": "Mavi Dingil Auto Parts is a fictional demo company whose principle is to deliver the right part with the right label to workshops and individual customers. Products, addresses and details on this site are fictional.",
+    "ar": "مافي دينغيل لقطع غيار السيارات شركة تجريبية افتراضية مبدؤها إيصال القطعة الصحيحة بالوسم الصحيح إلى الورش والعملاء الأفراد. المنتجات والعناوين والبيانات في هذا الموقع افتراضية."
+  },
+  "keyword": {
+    "tr": "hakkımızda",
+    "en": "about",
+    "ar": "من نحن"
+  },
+  "path": "hakkimizda",
+  "icon": "info",
+  "category": "",
+  "status": "play",
+  "desing": {
+    "header": [],
+    "body": [
+      "ln753z",
+      "8l0lo5"
+    ],
+    "footer": []
+  },
+  "index": 4,
+  "url": "",
+  "text": {},
+  "title": {
+    "tr": "Hakkımızda",
+    "en": "About",
+    "ar": "من نحن"
+  },
+  "date": "2026-10-31T14:53:33.044Z",
+  "update": "2026-10-31T14:53:33.046Z"
+}
