@@ -1,0 +1,44 @@
+{
+  "name": {
+    "tr": "Misyon",
+    "en": "Mission",
+    "ar": "المهمة"
+  },
+  "status": "play",
+  "id": "misyon",
+  "path": "misyon",
+  "category": "",
+  "text": {
+    "tr": "<h2>Misyonumuz</h2>\n<p>Misyonumuz, doğru parçayı doğru etiketle, açık bilgiyle ulaştırmaktır.</p>",
+    "en": "<h2>Our mission</h2>\n<p>Our mission is to deliver the right part with the right label and clear information.</p>",
+    "ar": "<h2>مهمتنا</h2>\n<p>مهمتنا إيصال القطعة الصحيحة بالوسم الصحيح ومعلومات واضحة.</p>"
+  },
+  "desing": {
+    "header": [],
+    "body": [
+      "hur1iw",
+      "qt1jzt"
+    ],
+    "footer": []
+  },
+  "desc": {},
+  "index": 1,
+  "icon": "home",
+  "title": {
+    "tr": "Misyon",
+    "en": "Mission",
+    "ar": "المهمة"
+  },
+  "description": {
+    "tr": "Misyonumuz",
+    "en": "Our mission",
+    "ar": "مهمتنا"
+  },
+  "keyword": {
+    "tr": "",
+    "en": "",
+    "ar": ""
+  },
+  "update": "2026-10-31T14:53:33.069Z",
+  "date": "2026-05-19"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "izrsfkr8lt",
+  "name": {
+    "tr": "Garanti ve İade",
+    "en": "Warranty and Returns",
+    "ar": "الضمان والإرجاع"
+  },
+  "description": {
+    "tr": "OEM / eşdeğer etiketleme, iade ve garanti koşulları.",
+    "en": "OEM / equivalent labelling, returns and warranty terms.",
+    "ar": "وسم OEM / مكافئ وشروط الإرجاع والضمان."
+  },
+  "keyword": {
+    "tr": "garanti, iade",
+    "en": "warranty, returns",
+    "ar": "ضمان، إرجاع"
+  },
+  "path": "garanti-iade",
+  "icon": "assignment_return",
+  "category": "",
+  "status": "play",
+  "desing": {
+    "header": [],
+    "body": [
+      "hur1iw"
+    ],
+    "footer": []
+  },
+  "index": 2,
+  "url": "",
+  "text": {
+    "tr": "<h2>Garanti ve iade</h2><p>Parçalar «OEM» (araç üreticisinin onayladığı) ya da «eşdeğer» olarak açıkça etiketlenir; «orijinal» ibaresi yalnızca OEM parçada kullanılır.</p><p>Parçalar, kullanılmamış ve ambalajı açılmamış olmak koşuluyla 14 gün içinde iade edilebilir. Elektrikli parçalarda montaj sonrası iade yalnızca arıza raporuyla kabul edilir.</p><p>Garanti süresi parça grubuna göre değişir ve fatura üzerinde yazılıdır.</p><p><em>Demo sitedir; koşullar örnektir.</em></p>",
+    "en": "<h2>Warranty and returns</h2><p>Parts are clearly labelled “OEM” (approved by the vehicle manufacturer) or “equivalent”; the word “original” is used only for OEM parts.</p><p>Parts can be returned within 14 days provided they are unused and in unopened packaging. For electrical parts, returns after installation are accepted only with a fault report.</p><p>The warranty period varies by part group and is stated on the invoice.</p><p><em>This is a demo site; the terms are examples.</em></p>",
+    "ar": "<h2>الضمان والإرجاع</h2><p>تُوسَم القطع بوضوح بأنها «OEM» (معتمدة من مصنّع المركبة) أو «مكافئة»؛ ولا تُستخدم كلمة «أصلية» إلا للقطع OEM.</p><p>يمكن إرجاع القطع خلال 14 يومًا بشرط أن تكون غير مستعملة وفي عبوتها المغلقة. وفي القطع الكهربائية لا يُقبل الإرجاع بعد التركيب إلا بتقرير عطل.</p><p>تختلف مدة الضمان بحسب مجموعة القطعة وتُذكر على الفاتورة.</p><p><em>هذا موقع تجريبي والشروط أمثلة.</em></p>"
+  },
+  "title": {
+    "tr": "Garanti ve İade",
+    "en": "Warranty and Returns",
+    "ar": "الضمان والإرجاع"
+  },
+  "date": "2026-10-31T14:53:33.035Z",
+  "update": "2026-10-31T14:53:33.037Z"
+}

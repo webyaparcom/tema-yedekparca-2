@@ -1,0 +1,44 @@
+{
+  "name": {
+    "tr": "Vizyon",
+    "en": "Vision",
+    "ar": "الرؤية"
+  },
+  "status": "play",
+  "id": "vizyon",
+  "path": "vizyon",
+  "category": "",
+  "text": {
+    "tr": "<h2>Vizyonumuz</h2>\n<p>Bölgenin güvenilir ve şeffaf yedek parça tedarikçisi olmak.</p>",
+    "en": "<h2>Our vision</h2>\n<p>To be the region’s trusted and transparent parts supplier.</p>",
+    "ar": "<h2>رؤيتنا</h2>\n<p>أن نكون مورد قطع الغيار الموثوق والشفاف في المنطقة.</p>"
+  },
+  "desing": {
+    "header": [],
+    "body": [
+      "hur1iw",
+      "qt1jzt"
+    ],
+    "footer": []
+  },
+  "desc": {},
+  "index": 2,
+  "icon": "home",
+  "title": {
+    "tr": "Vizyon",
+    "en": "Vision",
+    "ar": "الرؤية"
+  },
+  "description": {
+    "tr": "Vizyonumuz",
+    "en": "Our vision",
+    "ar": "رؤيتنا"
+  },
+  "keyword": {
+    "tr": "",
+    "en": "",
+    "ar": ""
+  },
+  "update": "2026-10-31T14:53:33.071Z",
+  "date": "2026-05-19"
+}

@@ -1,0 +1,44 @@
+{
+  "name": {
+    "tr": "Kalite Politikamız",
+    "en": "Quality Policy",
+    "ar": "سياسة الجودة"
+  },
+  "status": "play",
+  "id": "kalitepolitikamiz",
+  "path": "kalitepolitikamiz",
+  "category": "",
+  "text": {
+    "tr": "<h2>Kalite Politikamız</h2>\n<p>OEM / eşdeğer ayrımı, uygunluk kontrolü, fatura üzerinde garanti bilgisi ve izlenebilir stok kalite anlayışımızın temelidir.</p>",
+    "en": "<h2>Our quality policy</h2>\n<p>The OEM / equivalent distinction, fitment checks, warranty details on invoices and traceable stock are the basis of our quality approach.</p>",
+    "ar": "<h2>سياسة الجودة لدينا</h2>\n<p>التمييز بين OEM والمكافئ وفحص الملاءمة وبيانات الضمان على الفواتير والمخزون القابل للتتبع هي أساس نهجنا في الجودة.</p>"
+  },
+  "desing": {
+    "header": [],
+    "body": [
+      "hur1iw",
+      "qt1jzt"
+    ],
+    "footer": []
+  },
+  "desc": {},
+  "index": 3,
+  "icon": "home",
+  "title": {
+    "tr": "Kalite Politikamız",
+    "en": "Quality Policy",
+    "ar": "سياسة الجودة"
+  },
+  "description": {
+    "tr": "Kalite politikamız",
+    "en": "Our quality policy",
+    "ar": "سياسة الجودة لدينا"
+  },
+  "keyword": {
+    "tr": "",
+    "en": "",
+    "ar": ""
+  },
+  "update": "2026-10-31T14:53:33.073Z",
+  "date": "2026-05-19"
+}
