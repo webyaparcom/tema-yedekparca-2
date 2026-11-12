@@ -38,21 +38,21 @@
   <link rel="preload" href="/src/fonts/source-sans-3/source-sans-3-latin-ext-400-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/src/fonts/source-sans-3/source-sans-3-latin-ext-500-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/src/fonts/source-sans-3/source-sans-3-latin-ext-700-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="/src/fonts/source-sans-3.css?v=w3abu" />
-  <link rel="stylesheet" href="/src/fonts/montserrat.css?v=w3abu" />
-  <link rel="stylesheet" href="/src/fonts/ibm-plex-sans-arabic.css?v=w3abu" />
-  <link rel="stylesheet" href="/src/fonts/noto-kufi-arabic.css?v=w3abu" />
-  <link rel="stylesheet" href="/src/rubik.css?v=w3abu" />
-  <link rel="stylesheet" href="/src/css.css?v=w3abu" />
-  <link rel="stylesheet" href="/src/mx-ds.css?v=w3abu" />
+  <link rel="stylesheet" href="/src/fonts/source-sans-3.css?v=pno5w" />
+  <link rel="stylesheet" href="/src/fonts/montserrat.css?v=pno5w" />
+  <link rel="stylesheet" href="/src/fonts/ibm-plex-sans-arabic.css?v=pno5w" />
+  <link rel="stylesheet" href="/src/fonts/noto-kufi-arabic.css?v=pno5w" />
+  <link rel="stylesheet" href="/src/rubik.css?v=pno5w" />
+  <link rel="stylesheet" href="/src/css.css?v=pno5w" />
+  <link rel="stylesheet" href="/src/mx-ds.css?v=pno5w" />
   
-  <link rel="stylesheet" href="/src/mx-ui.css?v=w3abu" />
+  <link rel="stylesheet" href="/src/mx-ui.css?v=pno5w" />
   <link rel="preload" href="/src/material-symbols-outlined.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="/src/material-symbols-outlined.css?v=w3abu" />
+  <link rel="stylesheet" href="/src/material-symbols-outlined.css?v=pno5w" />
   
-  <link rel="stylesheet" href="/src/cookie.css?v=w3abu" />
-  <link rel="stylesheet" href="/src/swiper-bundle.min.css?v=w3abu" />
-  <link rel="shortcut icon" href="/img/icon.png?v=w3abu" type="image/png" />
+  <link rel="stylesheet" href="/src/cookie.css?v=pno5w" />
+  <link rel="stylesheet" href="/src/swiper-bundle.min.css?v=pno5w" />
+  <link rel="shortcut icon" href="/img/icon.png?v=pno5w" type="image/png" />
   <link rel="apple-touch-icon" href="/img/icon.png" />
   <script type="application/ld+json">
 {
@@ -111,7 +111,7 @@
 }
 </script>
   
-<link rel="stylesheet" href="style.css?v=w3abu">
+<link rel="stylesheet" href="style.css?v=pno5w">
 </head>
 
 <body>
@@ -225,6 +225,7 @@
       <nav class="h0001-m9-nav h0001-m9-nav--sag" aria-label="Navigation">
         <ul><li><a class="h0001-m9-oge" href="/en/garanti-iade/">Warranty and Returns</a></li><li><a class="h0001-m9-oge" href="/en/galeri/">Gallery</a></li><li><a class="h0001-m9-oge" href="/en/hakkimizda/">About</a></li><li><a class="h0001-m9-oge" href="/en/iletisim/">Contact</a></li></ul>
       </nav>
+      
       <div class="h0001-m9-bar-dil"><nav class="wm-langbar" aria-label="Language Selector"><ul><li class="wm-lang-item"><a href="/tr/" hreflang="tr" lang="tr">TR</a></li><li class="wm-lang-item wm-lang-active"><a href="/en/" hreflang="en" lang="en" aria-current="true">EN</a></li><li class="wm-lang-item"><a href="/ar/" hreflang="ar" lang="ar">AR</a></li></ul></nav></div>
       <button class="h0001-m9-hamburger" type="button" aria-expanded="false" aria-controls="m9-4tw3hy-panel" aria-label="Toggle Menu">
         <span class="material-symbols-outlined" aria-hidden="true">menu</span>
@@ -276,6 +277,8 @@
     }
     if (dugme) { dugme.addEventListener("click", function () { if (panel && panel.hidden) { ac(); } else { kapa(); } }); }
     if (kapat) { kapat.addEventListener("click", kapa); }
+    
+    document.addEventListener("click", function (e) { if (panel && !panel.hidden && !panel.contains(e.target) && !(dugme && dugme.contains(e.target))) { kapa(); } });
     document.addEventListener("keydown", function (e) { if (e.key === "Escape") { kapa(); } });
     
     if (panel) {
@@ -435,7 +438,7 @@
 </script>
 <section class="b0002-stats" data-stil="serit-renkli">
   <div class="b0002-stats-container">
-    <div class="b0002-stats-item" style="animation-delay:0s"><div class="b0002-stats-icon"><span class="material-symbols-outlined" aria-hidden="true">build</span></div><div class="b0002-stats-number" data-mx-count="6">0</div><div class="b0002-stats-label">Part groups</div></div><div class="b0002-stats-item" style="animation-delay:0.1s"><div class="b0002-stats-icon"><span class="material-symbols-outlined" aria-hidden="true">sell</span></div><div class="b0002-stats-number" data-mx-count="2">0</div><div class="b0002-stats-label">Labels: OEM / equivalent</div></div><div class="b0002-stats-item" style="animation-delay:0.2s"><div class="b0002-stats-icon"><span class="material-symbols-outlined" aria-hidden="true">assignment_return</span></div><div class="b0002-stats-number" data-mx-count="14">0</div><div class="b0002-stats-label">Day return window</div></div><div class="b0002-stats-item" style="animation-delay:0.30000000000000004s"><div class="b0002-stats-icon"><span class="material-symbols-outlined" aria-hidden="true">calendar_month</span></div><div class="b0002-stats-number" data-mx-count="6">0</div><div class="b0002-stats-label">Days a week</div></div>
+    <div class="b0002-stats-item" style="animation-delay:0s"><div class="b0002-stats-icon"><span class="material-symbols-outlined" aria-hidden="true">build</span></div><div class="b0002-stats-number" data-mx-count="6">0</div><div class="b0002-stats-label">Part groups</div></div><div class="b0002-stats-item" style="animation-delay:0.1s"><div class="b0002-stats-icon"><span class="material-symbols-outlined" aria-hidden="true">sell</span></div><div class="b0002-stats-number" data-mx-count="2">0</div><div class="b0002-stats-label">Label types: OEM and equivalent</div></div><div class="b0002-stats-item" style="animation-delay:0.2s"><div class="b0002-stats-icon"><span class="material-symbols-outlined" aria-hidden="true">assignment_return</span></div><div class="b0002-stats-number" data-mx-count="14">0</div><div class="b0002-stats-label">Day return window</div></div><div class="b0002-stats-item" style="animation-delay:0.30000000000000004s"><div class="b0002-stats-icon"><span class="material-symbols-outlined" aria-hidden="true">calendar_month</span></div><div class="b0002-stats-number" data-mx-count="6">0</div><div class="b0002-stats-label">Days open a week</div></div>
   </div>
 </section>
 
@@ -543,7 +546,7 @@
     <header class="b0004-lb__head"><h2 class="b0004-lb__title">Organisations we work with (fictional)</h2></header>
     <div class="b0004-lb__band" role="region" aria-label="Client logos">
       <div class="b0004-lb__track">
-        <ul class="b0004-lb__set"><li class="b0004-lb__item"><span class="b0004-lb__word">Usta Servis</span></li><li class="b0004-lb__item"><span class="b0004-lb__word">Rota Oto Bakim</span></li><li class="b0004-lb__item"><span class="b0004-lb__word">Kent Filo</span></li><li class="b0004-lb__item"><span class="b0004-lb__word">Delta Lojistik</span></li><li class="b0004-lb__item"><span class="b0004-lb__word">Vites Garaj</span></li><li class="b0004-lb__item"><span class="b0004-lb__word">Atlas Tasimacilik</span></li></ul>
+        <ul class="b0004-lb__set"><li class="b0004-lb__item"><span class="b0004-lb__word">Usta Servis</span></li><li class="b0004-lb__item"><span class="b0004-lb__word">Rota Oto Bakım</span></li><li class="b0004-lb__item"><span class="b0004-lb__word">Kent Filo</span></li><li class="b0004-lb__item"><span class="b0004-lb__word">Delta Lojistik</span></li><li class="b0004-lb__item"><span class="b0004-lb__word">Vites Garaj</span></li><li class="b0004-lb__item"><span class="b0004-lb__word">Atlas Taşımacılık</span></li></ul>
         
       </div>
     </div>
@@ -592,6 +595,7 @@
     <nav class="wm-langbar" aria-label="Language Selector"><ul><li class="wm-lang-item"><a href="/tr/" hreflang="tr" lang="tr">TR</a></li><li class="wm-lang-item wm-lang-active"><a href="/en/" hreflang="en" lang="en" aria-current="true">EN</a></li><li class="wm-lang-item"><a href="/ar/" hreflang="ar" lang="ar">AR</a></li></ul></nav>
   </div>
 </footer>
+<nav class="f0000-f9__bar" aria-label="Main menu"><a class="f0000-f9__bar-oge" href="/en/" aria-current="page"><span class="material-symbols-outlined" aria-hidden="true">home</span><span class="f0000-f9__bar-ad">Home</span></a><a class="f0000-f9__bar-oge" href="/en/urunler/"><span class="material-symbols-outlined" aria-hidden="true">inventory_2</span><span class="f0000-f9__bar-ad">Products</span></a><a class="f0000-f9__bar-oge" href="/en/stok-sor/"><span class="material-symbols-outlined" aria-hidden="true">storefront</span><span class="f0000-f9__bar-ad">Ask About Stock</span></a><a class="f0000-f9__bar-oge" href="/en/garanti-iade/"><span class="material-symbols-outlined" aria-hidden="true">menu_book</span><span class="f0000-f9__bar-ad">Warranty and Returns</span></a><a class="f0000-f9__bar-oge" href="/en/galeri/"><span class="material-symbols-outlined" aria-hidden="true">menu_book</span><span class="f0000-f9__bar-ad">Gallery</span></a></nav>
 
 <div class="f0001-dk" role="contentinfo" aria-label="Demo credit">
   <p class="f0001-dk-text">This demo was prepared by <bdi class="f0001-dk-brand" dir="ltr">Webyapar</bdi> — <a class="f0001-dk-cta" href="https://webyapar.com/temalar#yedekparca" target="_blank" rel="noopener noreferrer"><span>Get this theme</span><span class="mx-visually-hidden"> (opens in a new tab)</span><span class="material-symbols-outlined mx-flip f0001-dk-arrow" aria-hidden="true">arrow_forward</span></a></p>
@@ -602,10 +606,10 @@
   
 
   <script defer src="/src/swiper-bundle.min.js"></script>
-  <script defer src="/src/mx-ui.js?v=w3abu"></script>
-  <script defer src="/src/mx-store.js?v=w3abu"></script>
-  <script defer type="text/javascript" src="/src/js.js?v=w3abu"></script>
-  <script defer src="/src/cookie.js?v=w3abu"></script>
+  <script defer src="/src/mx-ui.js?v=pno5w"></script>
+  <script defer src="/src/mx-store.js?v=pno5w"></script>
+  <script defer type="text/javascript" src="/src/js.js?v=pno5w"></script>
+  <script defer src="/src/cookie.js?v=pno5w"></script>
 
 </body>
 

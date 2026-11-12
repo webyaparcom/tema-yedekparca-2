@@ -38,21 +38,21 @@
   <link rel="preload" href="/src/fonts/source-sans-3/source-sans-3-latin-ext-400-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/src/fonts/source-sans-3/source-sans-3-latin-ext-500-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/src/fonts/source-sans-3/source-sans-3-latin-ext-700-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="/src/fonts/source-sans-3.css?v=fzkuo" />
-  <link rel="stylesheet" href="/src/fonts/montserrat.css?v=fzkuo" />
-  <link rel="stylesheet" href="/src/fonts/ibm-plex-sans-arabic.css?v=fzkuo" />
-  <link rel="stylesheet" href="/src/fonts/noto-kufi-arabic.css?v=fzkuo" />
-  <link rel="stylesheet" href="/src/rubik.css?v=fzkuo" />
-  <link rel="stylesheet" href="/src/css.css?v=fzkuo" />
-  <link rel="stylesheet" href="/src/mx-ds.css?v=fzkuo" />
+  <link rel="stylesheet" href="/src/fonts/source-sans-3.css?v=kx1wu" />
+  <link rel="stylesheet" href="/src/fonts/montserrat.css?v=kx1wu" />
+  <link rel="stylesheet" href="/src/fonts/ibm-plex-sans-arabic.css?v=kx1wu" />
+  <link rel="stylesheet" href="/src/fonts/noto-kufi-arabic.css?v=kx1wu" />
+  <link rel="stylesheet" href="/src/rubik.css?v=kx1wu" />
+  <link rel="stylesheet" href="/src/css.css?v=kx1wu" />
+  <link rel="stylesheet" href="/src/mx-ds.css?v=kx1wu" />
   
-  <link rel="stylesheet" href="/src/mx-ui.css?v=fzkuo" />
+  <link rel="stylesheet" href="/src/mx-ui.css?v=kx1wu" />
   <link rel="preload" href="/src/material-symbols-outlined.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="/src/material-symbols-outlined.css?v=fzkuo" />
+  <link rel="stylesheet" href="/src/material-symbols-outlined.css?v=kx1wu" />
   
-  <link rel="stylesheet" href="/src/cookie.css?v=fzkuo" />
-  <link rel="stylesheet" href="/src/swiper-bundle.min.css?v=fzkuo" />
-  <link rel="shortcut icon" href="/img/icon.png?v=fzkuo" type="image/png" />
+  <link rel="stylesheet" href="/src/cookie.css?v=kx1wu" />
+  <link rel="stylesheet" href="/src/swiper-bundle.min.css?v=kx1wu" />
+  <link rel="shortcut icon" href="/img/icon.png?v=kx1wu" type="image/png" />
   <link rel="apple-touch-icon" href="/img/icon.png" />
   <script type="application/ld+json">
 {
@@ -106,7 +106,7 @@
         "@type": "ImageObject",
         "url": "https://yedekparca-2.webyapar.com/img/logo.png"
       },
-      "dateModified": "2026-10-31T14:53:33.069Z",
+      "dateModified": "2026-11-12T07:37:02.410Z",
       "breadcrumb": {
         "@id": "https://yedekparca-2.webyapar.com/tr/misyon/#breadcrumb"
       }
@@ -133,7 +133,7 @@
 }
 </script>
   
-<link rel="stylesheet" href="style.css?v=fzkuo">
+<link rel="stylesheet" href="style.css?v=kx1wu">
 </head>
 
 <body>
@@ -247,6 +247,7 @@
       <nav class="h0001-m9-nav h0001-m9-nav--sag" aria-label="Navigasyon">
         <ul><li><a class="h0001-m9-oge" href="/tr/garanti-iade/">Garanti ve İade</a></li><li><a class="h0001-m9-oge" href="/tr/galeri/">Galeri</a></li><li><a class="h0001-m9-oge" href="/tr/hakkimizda/">Hakkımızda</a></li><li><a class="h0001-m9-oge" href="/tr/iletisim/">İletişim</a></li></ul>
       </nav>
+      
       <div class="h0001-m9-bar-dil"><nav class="wm-langbar" aria-label="Dil Seçici"><ul><li class="wm-lang-item wm-lang-active"><a href="/tr/misyon/" hreflang="tr" lang="tr" aria-current="true">TR</a></li><li class="wm-lang-item"><a href="/en/misyon/" hreflang="en" lang="en">EN</a></li><li class="wm-lang-item"><a href="/ar/misyon/" hreflang="ar" lang="ar">AR</a></li></ul></nav></div>
       <button class="h0001-m9-hamburger" type="button" aria-expanded="false" aria-controls="m9-4tw3hy-panel" aria-label="Menüyü Aç/Kapat">
         <span class="material-symbols-outlined" aria-hidden="true">menu</span>
@@ -298,6 +299,8 @@
     }
     if (dugme) { dugme.addEventListener("click", function () { if (panel && panel.hidden) { ac(); } else { kapa(); } }); }
     if (kapat) { kapat.addEventListener("click", kapa); }
+    
+    document.addEventListener("click", function (e) { if (panel && !panel.hidden && !panel.contains(e.target) && !(dugme && dugme.contains(e.target))) { kapa(); } });
     document.addEventListener("keydown", function (e) { if (e.key === "Escape") { kapa(); } });
     
     if (panel) {
@@ -527,6 +530,7 @@
     <nav class="wm-langbar" aria-label="Dil Seçici"><ul><li class="wm-lang-item wm-lang-active"><a href="/tr/misyon/" hreflang="tr" lang="tr" aria-current="true">TR</a></li><li class="wm-lang-item"><a href="/en/misyon/" hreflang="en" lang="en">EN</a></li><li class="wm-lang-item"><a href="/ar/misyon/" hreflang="ar" lang="ar">AR</a></li></ul></nav>
   </div>
 </footer>
+<nav class="f0000-f9__bar" aria-label="Ana menü"><a class="f0000-f9__bar-oge" href="/tr/"><span class="material-symbols-outlined" aria-hidden="true">home</span><span class="f0000-f9__bar-ad">Anasayfa</span></a><a class="f0000-f9__bar-oge" href="/tr/urunler/"><span class="material-symbols-outlined" aria-hidden="true">inventory_2</span><span class="f0000-f9__bar-ad">Ürünler</span></a><a class="f0000-f9__bar-oge" href="/tr/stok-sor/"><span class="material-symbols-outlined" aria-hidden="true">menu_book</span><span class="f0000-f9__bar-ad">Stok Sor</span></a><a class="f0000-f9__bar-oge" href="/tr/garanti-iade/"><span class="material-symbols-outlined" aria-hidden="true">menu_book</span><span class="f0000-f9__bar-ad">Garanti ve İade</span></a><a class="f0000-f9__bar-oge" href="/tr/galeri/"><span class="material-symbols-outlined" aria-hidden="true">menu_book</span><span class="f0000-f9__bar-ad">Galeri</span></a></nav>
 
 <div class="f0001-dk" role="contentinfo" aria-label="Demo bilgisi">
   <p class="f0001-dk-text">Bu demo <bdi class="f0001-dk-brand" dir="ltr">Webyapar</bdi> tarafından hazırlanmıştır — <a class="f0001-dk-cta" href="https://webyapar.com/temalar#yedekparca" target="_blank" rel="noopener noreferrer"><span>Bu temayı iste</span><span class="mx-visually-hidden"> (yeni sekmede açılır)</span><span class="material-symbols-outlined mx-flip f0001-dk-arrow" aria-hidden="true">arrow_forward</span></a></p>
@@ -537,10 +541,10 @@
   
 
   <script defer src="/src/swiper-bundle.min.js"></script>
-  <script defer src="/src/mx-ui.js?v=fzkuo"></script>
-  <script defer src="/src/mx-store.js?v=fzkuo"></script>
-  <script defer type="text/javascript" src="/src/js.js?v=fzkuo"></script>
-  <script defer src="/src/cookie.js?v=fzkuo"></script>
+  <script defer src="/src/mx-ui.js?v=kx1wu"></script>
+  <script defer src="/src/mx-store.js?v=kx1wu"></script>
+  <script defer type="text/javascript" src="/src/js.js?v=kx1wu"></script>
+  <script defer src="/src/cookie.js?v=kx1wu"></script>
 
 </body>
 
