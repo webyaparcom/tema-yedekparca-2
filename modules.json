@@ -166,7 +166,10 @@
         "img": "",
         "imgwidth": "250px",
         "stil": "",
-        "showlang": true
+        "showlang": true,
+        "showsocial": true,
+        "social": [],
+        "langcolor": ""
       },
       "data": [],
       "version": "1.0.0",
@@ -1690,6 +1693,12 @@
           "tr": "(yeni sekmede açılır)",
           "en": "(opens in a new tab)",
           "ar": "(يفتح في علامة تبويب جديدة)"
+        },
+        "girisHref": "",
+        "girisText": {
+          "tr": "Üye Girişi",
+          "en": "Login",
+          "ar": "تسجيل الدخول"
         }
       },
       "id": "owmkz1",
@@ -1743,7 +1752,10 @@
           "en": "Weekdays 08:00 – 18:30 · Saturday 08:30 – 15:00",
           "ar": "أيام الأسبوع 08:00 – 18:30 · السبت 08:30 – 15:00"
         },
-        "social": []
+        "social": [],
+        "bgcolor": "var(--mx-site-bg, #ffffff)",
+        "color": "var(--mx-site-text, #1b1b1b)",
+        "bordercolor": "color-mix(in srgb, var(--mx-site-text, #1b1b1b) 14%, transparent)"
       },
       "data": [],
       "id": "4tw3hy",
@@ -2073,9 +2085,9 @@
           "number": 2,
           "suffix": "",
           "label": {
-            "tr": "Etiket: OEM / eşdeğer",
-            "en": "Labels: OEM / equivalent",
-            "ar": "الوسوم: OEM / مكافئ"
+            "tr": "Etiket türü: OEM ve eşdeğer",
+            "en": "Label types: OEM and equivalent",
+            "ar": "نوعا الوسم: OEM ومكافئ"
           },
           "icon": "sell"
         },
@@ -2093,9 +2105,9 @@
           "number": 6,
           "suffix": "",
           "label": {
-            "tr": "Gün hizmet (haftalık)",
-            "en": "Days a week",
-            "ar": "أيام أسبوعيًا"
+            "tr": "Gün açık (haftada)",
+            "en": "Days open a week",
+            "ar": "أيام العمل أسبوعيًا"
           },
           "icon": "calendar_month"
         }
@@ -2283,7 +2295,7 @@
           "url": ""
         },
         {
-          "name": "Rota Oto Bakim",
+          "name": "Rota Oto Bakım",
           "img": "",
           "url": ""
         },
@@ -2303,7 +2315,7 @@
           "url": ""
         },
         {
-          "name": "Atlas Tasimacilik",
+          "name": "Atlas Taşımacılık",
           "img": "",
           "url": ""
         }

@@ -21,6 +21,7 @@
     {{langbar}}
   </div>
 </footer>
+{{barhtml}}
 <style>
   /* Footer 9 — Kurumsal (31 Eki 2026). Renkler yalnız desing anahtarından gelir; anahtarların varsayılanı
      var(--mx-site-*, <fallback>) biçimindedir: token'sız müşteri sitesinde fallback, colorScheme:"auto" sitede palet (koyu mod dahil). */
@@ -238,6 +239,61 @@
     [class*="modulex"] * {
       animation: none !important;
       transition: none !important;
+    }
+  }
+
+  /* alt uygulama çubuğu (12 Kas 2026, kullanıcı emri): app benzeri ANA MENÜ — dikey ikon+etiket, 56px,
+     aktif öğe işaretli; yalnız mobil (<=768px). Dil YOK (tek yerde: üst menü/çekmece). */
+  .modulex-f9__bar { display: none; }
+  .modulex-f9__bar-oge {
+    flex: 1 1 0;
+    min-width: 0;
+    min-height: 56px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    color: --color--;
+    text-decoration: none;
+    opacity: 0.78;
+    transition: opacity 0.2s ease;
+  }
+  .modulex-f9__bar-oge:hover, .modulex-f9__bar-oge:focus-visible { opacity: 1; outline-color: currentColor; }
+  .modulex-f9__bar-oge .material-symbols-outlined { font-size: 22px; line-height: 1; color: --accent--; }
+  .modulex-f9__bar-ad {
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    padding-inline: 4px;
+  }
+  .modulex-f9__bar-oge[aria-current="page"] { opacity: 1; }
+  .modulex-f9__bar-oge[aria-current="page"] .modulex-f9__bar-ad { font-weight: 700; }
+  @media (max-width: 768px) {
+    .modulex-f9 { padding-bottom: 72px; }
+    .modulex-f9__bar { display: flex; position: fixed; inset-inline: 0; bottom: 0; z-index: 9990; background: --bgcolor--; border-top: 2px solid --accent--; box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.22); padding-bottom: env(safe-area-inset-bottom, 0); }
+  }
+
+  /* Mobil uygulama kuralı (12 Kas 2026): bağlantı/çip hedefleri >= 48px; alt satır dil çipleri >= 48px (yalnız <=768px) */
+  @media (max-width: 768px) {
+    .modulex-f9__link,
+    .modulex-f9__chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 48px;
+      box-sizing: border-box;
+    }
+
+    .modulex-f9__bottom .wm-langbar li a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 48px;
+      min-height: 48px;
     }
   }
 </style>

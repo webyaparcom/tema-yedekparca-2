@@ -67,8 +67,44 @@ if (Array.isArray(json.desing.legal)) {
 }
 var f9LegalHtml = f9LegalItems ? '<ul class="modulex-f9__legal">' + f9LegalItems + "</ul>" : "";
 
+/* mobil alt bar (12 Kas 2026, kullanıcı emri): app benzeri ANA MENÜ — ana sayfa + play sayfaları (en çok 5 öğe, ikon+etiket).
+   Alt barda Ara/E-posta/Dil YOK — dil tek yerde: üst menü (menu-9) bandı/çekmecesi + footer alt satırı. */
+var F9_IKON = [
+  [/(ana\s?sayfa|home)/i, "home"],
+  [/\u00fc?r\u00fcn|product|katalog/i, "inventory_2"],
+  [/hak|about/i, "storefront"],
+  [/ileti?si?m|contact|temas/i, "mail"],
+  [/haber|news|blog|g\u00fcncel|guncel/i, "newspaper"],
+  [/fiyat|price|liste/i, "request_quote"],
+  [/sipari|order|satin|sat\u0131n/i, "shopping_basket"],
+  [/kargo|shipping|teslimat/i, "local_shipping"],
+  [/soru|faq|question/i, "help"],
+  [/video/i, "videocam"]
+];
+function f9Ikon(ad) {
+  for (var fi = 0; fi < F9_IKON.length; fi++) { if (F9_IKON[fi][0].test(ad)) { return F9_IKON[fi][1]; } }
+  return "menu_book";
+}
+var f9BarOgeler = [{ ad: "@home@", href: wxLangInternalHref(""), aktif: !page || !page.path }];
+if (f9Pagesetting && webmakerdata[f9Pagesetting.path] && Array.isArray(webmakerdata[f9Pagesetting.path].data)) {
+  for (var f9P of webmakerdata[f9Pagesetting.path].data) {
+    if (f9BarOgeler.length >= 5) { break; }
+    if (f9P.status !== "play") { continue; }
+    var f9Pad = f9Lang(f9P.name).trim();
+    if (!f9Pad) { continue; }
+    f9BarOgeler.push({ ad: f9Esc(f9Pad), href: wxLangInternalHref(f9P.pathnext || f9P.path || ""), aktif: page && page.path === f9P.path });
+  }
+}
+var f9Bar = f9BarOgeler.map(function (o) {
+  return '<a class="modulex-f9__bar-oge" href="' + o.href + '"' + (o.aktif ? ' aria-current="page"' : "") + '>' +
+    '<span class="material-symbols-outlined" aria-hidden="true">' + f9Ikon(o.ad) + "</span>" +
+    '<span class="modulex-f9__bar-ad">' + o.ad + "</span></a>";
+}).join("");
+var f9BarHtml = '<nav class="modulex-f9__bar" aria-label="' + (json.lang === "tr" ? "Ana men\u00fc" : "Main menu") + '">' + f9Bar + "</nav>";
+
 /* --- yerleştirme (her placeholder koşulsuz) --- */
 html = html
+  .replace(/{{barhtml}}/g, f9BarHtml)
   .replace(/{{html}}/g, f9Html)
   .replace(/{{contacthtml}}/g, f9ContactHtml)
   .replace(/{{socialhtml}}/g, f9SocialHtml)
