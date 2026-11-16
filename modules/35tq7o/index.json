@@ -1,80 +1,51 @@
 {
-  "name": "Kurumsal Değerler 1",
+  "name": "Değer Gradyan Sınır — dönen ışıklı kenarlı koyu kartlar",
+  "description": "Koyu zeminde kartların kenarında vurgu renginden dönen konik gradyan ışık; hover'da ışık hızlanır ve kart parlar. Teknoloji/oyun estetiği: hareketli parlak kenar (conic-gradient) — durağan çerçevenin tersi. Metinler dil sözlüğü, renkler desing + var(--mx-site-*), mantıksal CSS → RTL. Veri yoksa blok basılmaz.",
+  "version": "1.0.0",
+  "icon": "motion_photos_on",
+  "category": "values",
+  "subCategory": "glow-border",
+  "tags": [
+    "values",
+    "glow",
+    "gradient",
+    "dark",
+    "tech",
+    "rtl",
+    "fabrika"
+  ],
   "desing": {
     "max": "1200px",
-    "bgcolor": "#F5F8FC",
-    "accent": "#2E6BFF",
-    "titlecolor": "#1B3A6B",
-    "textcolor": "#475569",
-    "cardbg": "#ffffff",
-    "badgebg": "#2E6BFF",
-    "badgecolor": "#ffffff",
-    "badge": {
-      "tr": "Değerlerimiz",
-      "en": "Our Values"
-    },
-    "title": {
-      "tr": "Enerji altyapısında güvenilir duruş",
-      "en": "Trusted stance in energy infrastructure"
-    },
-    "description": {
-      "tr": "Projelerimizi ilkelerimiz, deneyimimiz ve kalite anlayışımızla yürütüyoruz.",
-      "en": "We deliver projects with principle, experience and quality."
-    }
+    "bosluk": "clamp(56px, 8vw, 104px)",
+    "yuvarlak": "18px",
+    "ust": "",
+    "baslik": "",
+    "metin": "",
+    "bg": "var(--mx-site-text, #111318)",
+    "text": "var(--mx-site-bg, #ffffff)",
+    "muted": "color-mix(in srgb, var(--mx-site-bg, #ffffff) 78%, var(--mx-site-text, #111318))",
+    "kartBg": "color-mix(in srgb, var(--mx-site-bg, #ffffff) 7%, transparent)",
+    "cizgi": "color-mix(in srgb, var(--mx-site-bg, #ffffff) 18%, transparent)",
+    "accent": "color-mix(in srgb, var(--mx-site-primary, #2563eb) 55%, var(--mx-site-bg, #ffffff))",
+    "accentInk": "color-mix(in srgb, var(--mx-site-primary, #2563eb) 45%, var(--mx-site-bg, #ffffff))",
+    "accentText": "var(--mx-site-text, #111318)",
+    "vurguBg": "color-mix(in srgb, var(--mx-site-primary, #2563eb) 55%, var(--mx-site-bg, #ffffff))",
+    "vurguText": "var(--mx-site-text, #111318)",
+    "bgcolor": "var(--mx-site-text, #111318)",
+    "color": "var(--mx-site-bg, #ffffff)"
   },
-  "data": [
-    {
-      "icon": "balance",
-      "name": {
-        "tr": "İlkeli",
-        "en": "Principled"
-      },
-      "description": {
-        "tr": "İş güvenliği, mevzuat ve sözleşme taahhütlerine bağlı çalışırız.",
-        "en": "We work bound to safety, regulations and commitments."
-      }
-    },
-    {
-      "icon": "engineering",
-      "name": {
-        "tr": "Deneyimli",
-        "en": "Experienced"
-      },
-      "description": {
-        "tr": "Saha ekiplerimiz iletim, dağıtım ve yenilenebilir projelerde tecrübelidir.",
-        "en": "Field teams experienced in transmission, distribution and renewables."
-      }
-    },
-    {
-      "icon": "verified",
-      "name": {
-        "tr": "Kaliteli",
-        "en": "Quality-driven"
-      },
-      "description": {
-        "tr": "Malzeme seçimi, test ve devreye alma süreçlerinde kaliteyi önceliklendiririz.",
-        "en": "We prioritize quality in materials, testing and commissioning."
-      }
-    },
-    {
-      "icon": "visibility",
-      "name": {
-        "tr": "Vizyonlu",
-        "en": "Visionary"
-      },
-      "description": {
-        "tr": "Sürdürülebilir enerji altyapısına uzun vadeli katkı hedefleriz.",
-        "en": "We aim for long-term contribution to sustainable energy infrastructure."
-      }
-    }
-  ],
-  "category": "values",
-  "description": "Kurumsal değer kartları (MLA tarzı dört sütun). Rakam yok; ikon, başlık ve kısa açıklama. Animasyon, mobil tek sütun ve prefers-reduced-motion destekler.",
-  "version": "1.0.0",
-  "icon": "diamond",
+  "data": [],
   "veri": {
     "statik": true,
     "dinamik": false,
-    "kaynak": "desing/data"
+    "kaynak": "data",
+    "alanlar": {
+      "ikon": "Material Symbols adı",
+      "baslik": "dil sözlüğü (zorunlu)",
+      "metin": "dil sözlüğü",
+      "etiket": "dil sözlüğü (küçük üst etiket)",
+      "img": "görsel yolu (destekleyen yerleşimde)",
+      "url": "iç/dış bağlantı (kartın tamamı tıklanır)"
+    }
   }
 }

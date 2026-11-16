@@ -1,299 +1,106 @@
-<footer class="modulex-f9" role="contentinfo">
-  <div class="modulex-f9__main">
-    <div class="modulex-f9__col modulex-f9__brand">
-      <a href="/{{lang}}/" class="modulex-f9__logo" aria-label="@home@ - {{web-name}}">
-        <img src="/img/{{logo}}" alt="{{web-name}} Logo" loading="lazy" />
-      </a>
-      <p class="modulex-f9__about">{{about}}</p>
-    </div>
-    <nav class="modulex-f9__col modulex-f9__pages" aria-label="@navigation@">
-      <h3 class="modulex-f9__title">{{title_pages}}</h3>
-      <ul class="modulex-f9__list">
-        {{html}}
-      </ul>
-    </nav>
-    {{contacthtml}}
-    {{socialhtml}}
-  </div>
-  <div class="modulex-f9__bottom">
-    <p class="modulex-f9__rights">&copy; {{year}} {{web-name}}. {{rightsText}}</p>
-    {{legalhtml}}
-    {{langbar}}
+<footer class="modulex-alt-egik{{fbsinif}}" {{fbetiket}}>
+  <div class="modulex-alt-egik-ic">
+    {{fbbas}}
+    {{fbgovde}}
   </div>
 </footer>
-{{barhtml}}
+
 <style>
-  /* Footer 9 — Kurumsal (31 Eki 2026). Renkler yalnız desing anahtarından gelir; anahtarların varsayılanı
-     var(--mx-site-*, <fallback>) biçimindedir: token'sız müşteri sitesinde fallback, colorScheme:"auto" sitede palet (koyu mod dahil). */
-  .modulex-f9 {
-    width: 100%;
-    background: --bgcolor--;
-    color: --color--;
-    border-top: 4px solid --accent--;
-    padding-block: 48px 20px;
-    padding-inline: 20px;
-    box-sizing: border-box;
-  }
+  /* alt-egik — Keskin çapraz kesim (clip-path) hareket ve hız duygusu verir; footer bir kapanış afişi gibi renkli. */
+  .modulex-alt-egik { box-sizing: border-box; width: 100%; padding: --bosluk-- 20px; background: --bg--; color: --text--; font-size: 1rem; line-height: 1.6; font-family: var(--mx-font-sans, inherit); overflow-wrap: break-word; }
+  .modulex-alt-egik *, .modulex-alt-egik *::before, .modulex-alt-egik *::after { box-sizing: border-box; }
+  /* ham/css.css «* { font-size: 14px }» kalıtımı keser — modül içinde boyut üstten gelsin (ikon yazı tipi hariç) */
+  .modulex-alt-egik :where(*:not(.material-symbols-outlined)) { font-size: inherit; }
+  /* aynı «*» kuralı font-weight 400 · line-height 1.2 · font-family de basar — modül içinde kalıtım */
+  .modulex-alt-egik :where(*:not(.material-symbols-outlined)) { font-weight: inherit; line-height: inherit; font-family: inherit; }
+  .modulex-alt-egik :where(h2, h3, h4, p, ul, ol, li, figure, blockquote, dl, dd) { margin: 0; }
+  .modulex-alt-egik :where(ul, ol) { padding: 0; list-style: none; }
+  .modulex-alt-egik img { display: block; max-width: 100%; }
+  /* <img width height> öznitelik yüksekliği CSS aspect-ratio'yu ezer — sıfır özgüllükle auto (modül sınıfının height'ı yine kazanır) */
+  :where(.modulex-alt-egik) img { height: auto; }
+  .modulex-alt-egik [hidden] { display: none !important; }
+  .modulex-alt-egik :where(a, button, summary, [data-cevir]) { cursor: pointer; }
+  .modulex-alt-egik :where(a, button, summary, [tabindex]):focus-visible { outline: 3px solid --accent--; outline-offset: 3px; }
+  .modulex-alt-egik-ic { max-width: --max--; margin-inline: auto; }
+  .modulex-alt-egik-bas { display: grid; gap: 12px; margin-block-end: clamp(32px, 4vw, 52px); }
+  .modulex-alt-egik--bassiz .modulex-alt-egik-bas { display: none; }
+  .modulex-alt-egik-ust { color: --accentInk--; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+  .modulex-alt-egik-baslik { font-family: var(--mx-font-heading, inherit); font-size: clamp(1.8rem, 3.4vw, 2.8rem); font-weight: 750; letter-spacing: -0.025em; line-height: 1.1; }
+  .modulex-alt-egik-metin { color: --muted--; font-size: 1.05rem; line-height: 1.7; }
+  .modulex-alt-egik-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-block-start: 8px; }
+  .modulex-alt-egik-dugme { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 12px 22px; border: 2px solid --accent--; border-radius: 999px; background: --accent--; color: --accentText--; font-weight: 700; text-decoration: none; transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease; }
+  .modulex-alt-egik-dugme:hover { transform: translateY(-2px); }
+  .modulex-alt-egik-dugme--ikincil { background: transparent; color: --text--; border-color: --cizgi--; }
+  .modulex-alt-egik-dugme--ikincil:hover { border-color: --accent--; }
+  .modulex-alt-egik-dugme .material-symbols-outlined { font-size: 20px; }
 
-  .modulex-f9__main {
-    display: grid;
-    /* 31 Eki 2026: marka sütunu geniş; `1.6fr repeat(auto-fit…)` GEÇERSİZ (auto-fit sabit track'le birleşmez → grid düştü, sütunlar yığıldı) */
-    grid-template-columns: 1.6fr 1fr 1fr 1fr;
-    gap: 40px;
-    max-width: 1200px;
-    margin-inline: auto;
-  }
-  .modulex-f9__main--c3 { grid-template-columns: 1.6fr 1fr 1fr; }
-  .modulex-f9__main--c2 { grid-template-columns: 1.6fr 1fr; }
+  .modulex-alt-egik-bag { color: inherit; text-decoration: none; transition: color 0.2s ease; }
+  .modulex-alt-egik-bag:hover { color: --accentInk--; text-decoration: underline; text-underline-offset: 4px; }
+  .modulex-alt-egik-bag[aria-current="page"] { color: --accentInk--; font-weight: 700; }
+  .modulex-alt-egik-logo { display: inline-flex; align-items: center; gap: 10px; color: inherit; text-decoration: none; }
+  .modulex-alt-egik-logo img { width: auto; max-height: --logoH--; }
+  .modulex-alt-egik-ad { font-family: var(--mx-font-heading, inherit); font-size: 1.4rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; }
+  .modulex-alt-egik-bbaslik { margin-block-end: 14px; color: --accentInk--; font-size: 0.8rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
+  .modulex-alt-egik-sayfalar, .modulex-alt-egik-baglantilar, .modulex-alt-egik-iletisim, .modulex-alt-egik-yasal { display: grid; gap: 9px; }
+  .modulex-alt-egik-il { display: flex; align-items: flex-start; gap: 10px; }
+  .modulex-alt-egik-il-ic { display: grid; gap: 2px; }
+  .modulex-alt-egik-il-etiket { color: --muted--; font-size: 0.8rem; }
+  .modulex-alt-egik-il-ikon { flex: none; color: --accentInk--; font-size: 20px; }
+  .modulex-alt-egik-saatler { display: grid; gap: 6px; }
+  .modulex-alt-egik-saat { display: flex; justify-content: space-between; gap: 16px; }
+  .modulex-alt-egik-saat dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .modulex-alt-egik-sosyal { display: flex; flex-wrap: wrap; gap: 10px; }
+  .modulex-alt-egik-sosyal-a { display: inline-grid; place-items: center; width: 42px; height: 42px; border: 1px solid --cizgi--; border-radius: 50%; color: inherit; font-size: 18px; transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease; }
+  .modulex-alt-egik-sosyal-a:hover { border-color: --accent--; background: --accent--; color: --accentText--; transform: translateY(-2px); }
+  .modulex-alt-egik-hakkinda { max-width: 46ch; color: --muted--; }
+  .modulex-alt-egik-telif { display: flex; flex-wrap: wrap; gap: 4px 14px; color: --muted--; font-size: 0.9rem; }
+  .modulex-alt-egik-dil:empty { display: none; }
+  .modulex-alt-egik-yukari { display: inline-grid; place-items: center; flex: none; width: 46px; height: 46px; border-radius: 50%; background: --accent--; color: --accentText--; text-decoration: none; transition: transform 0.25s ease; }
+  .modulex-alt-egik-yukari:hover { transform: translateY(-3px); }
+  .modulex-alt-egik-bulten { display: grid; gap: 8px; }
+  .modulex-alt-egik-nl-etiket { font-size: 0.9rem; font-weight: 700; }
+  .modulex-alt-egik-nl-satir { display: flex; flex-wrap: wrap; gap: 8px; }
+  .modulex-alt-egik-nl-girdi { flex: 1 1 200px; min-width: 0; min-height: 48px; padding: 10px 18px; border: 1px solid --cizgi--; border-radius: 999px; background: --bg--; color: --text--; font: inherit; }
+  .modulex-alt-egik-nl-dugme { display: inline-flex; align-items: center; gap: 6px; min-height: 48px; padding: 10px 22px; border: 0; border-radius: 999px; background: --accent--; color: --accentText--; font: inherit; font-weight: 700; transition: transform 0.2s ease; }
+  .modulex-alt-egik-nl-dugme:hover { transform: translateY(-2px); }
+  .modulex-alt-egik-nl-dugme .material-symbols-outlined { font-size: 18px; }
+  .modulex-alt-egik-nl-durum:empty { display: none; }
+  .modulex-alt-egik-nl-baslik { font-family: var(--mx-font-heading, inherit); font-size: clamp(1.4rem, 2.6vw, 2rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; }
+  .modulex-alt-egik-nl-metin { color: --muted--; }
 
-  .modulex-f9__col {
-    min-width: 0;
-  }
-
-  .modulex-f9__title {
-    font-size: 16px;
-    font-weight: 600;
-    margin: 0 0 14px;
-    color: --color--;
-    letter-spacing: 0.02em;
-  }
-
-  /* Logo oranı: height:auto + max-height; HTML width/height attr yalnız ipucu. */
-  .modulex-f9__logo {
-    display: inline-flex;
-    align-items: center;
-    max-width: 100%;
-    margin-bottom: 14px;
-    text-decoration: none;
-  }
-
-  .modulex-f9__logo img {
-    display: block;
-    height: auto;
-    width: auto;
-    max-height: --logo_maxh--;
-    max-width: 220px;
-    object-fit: contain;
-    flex-shrink: 0;
-  }
-
-  /* logo_plate:true → koyu logo koyu zeminde okunur (plaka bilerek sabit beyaz: logonun kendi renklerini korur) */
-  .modulex-f9__logo--plate {
-    background: #fff;
-    border-radius: 8px;
-    padding: 6px 12px;
-  }
-
-  .modulex-f9__about {
-    margin: 0;
-    font-size: 14px;
-    line-height: 1.7;
-    color: --mutedcolor--;
-    max-width: 36ch;
-  }
-
-  .modulex-f9__list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .modulex-f9__list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    min-width: 0;
-    overflow-wrap: anywhere;
-    font-size: 14px;
-    line-height: 1.5;
-    color: --mutedcolor--;
-  }
-
-  .modulex-f9__list .material-symbols-outlined {
-    font-size: 18px;
-    line-height: 1.5;
-    color: --accent--;
-    flex-shrink: 0;
-  }
-
-  .modulex-f9 a.modulex-f9__link:link,
-  .modulex-f9 a.modulex-f9__link:visited {
-    color: --mutedcolor--;
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-
-  .modulex-f9 a.modulex-f9__link:hover,
-  .modulex-f9 a.modulex-f9__link:focus-visible {
-    color: --color--;
-    text-decoration: underline;
-    outline-color: currentColor;
-  }
-
-  .modulex-f9__social {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .modulex-f9 a.modulex-f9__chip:link,
-  .modulex-f9 a.modulex-f9__chip:visited {
-    display: inline-flex;
-    align-items: center;
-    padding: 6px 12px;
-    border-radius: 999px;
-    font-size: 13px;
-    color: --color--;
-    text-decoration: none;
-    border: 1px solid --bordercolor--;
-    background: color-mix(in srgb, currentColor 6%, transparent);
-    transition: background-color 0.2s ease;
-  }
-
-  .modulex-f9 a.modulex-f9__chip:hover,
-  .modulex-f9 a.modulex-f9__chip:focus-visible {
-    background: color-mix(in srgb, --accent-- 18%, transparent);
-    color: --color--;
-    outline-color: currentColor;
-  }
-
-  .modulex-f9__bottom {
-    max-width: 1200px;
-    margin: 36px auto 0;
-    padding-top: 18px;
-    border-top: 1px solid --bordercolor--;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px 20px; /* mobilde komşu bloklar (telif · yasal · dil) arası ≥12px */
-    font-size: 13px;
-  }
-
-  .modulex-f9__rights {
-    margin: 0;
-    color: --mutedcolor--;
-  }
-
-  .modulex-f9__legal {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px 16px;
-  }
-
-  .modulex-f9__bottom .wm-langbar ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
+  .modulex-alt-egik.modulex-alt-egik { padding-inline: 0; }
+  .modulex-alt-egik { background: transparent; }
+  .modulex-alt-egik-ic { max-width: none; }
+  .modulex-alt-egik-govde { padding: clamp(80px, 10vw, 140px) 20px 32px; background: --bg--; clip-path: polygon(0 clamp(36px, 6vw, 90px), 100% 0, 100% 100%, 0 100%); }
+  :is([dir="rtl"]) .modulex-alt-egik-govde { clip-path: polygon(0 0, 100% clamp(36px, 6vw, 90px), 100% 100%, 0 100%); }
+  .modulex-alt-egik-tepe, .modulex-alt-egik-izgara, .modulex-alt-egik-alt { max-width: --max--; margin-inline: auto; }
+  .modulex-alt-egik-tepe { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 20px 40px; padding-block-end: 36px; margin-block-end: 36px; border-block-end: 2px solid --cizgi--; }
+  .modulex-alt-egik-cbaslik { max-width: 18ch; font-family: var(--mx-font-heading, inherit); font-size: clamp(2rem, 5vw, 3.6rem); font-weight: 900; letter-spacing: -0.035em; line-height: 1; }
+  .modulex-alt-egik-marka { display: grid; gap: 12px; }
+  .modulex-alt-egik-hakkinda { color: inherit; }
+  .modulex-alt-egik-dugme { border-color: --vurguBg--; background: --vurguBg--; color: --vurguText--; }
+  .modulex-alt-egik-izgara { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; }
+  .modulex-alt-egik-bbaslik { color: inherit; }
+  .modulex-alt-egik-blok { display: grid; align-content: start; gap: 14px; }
+  .modulex-alt-egik-sosyal-a { border-color: currentColor; }
+  /* dil çubuğu vurgu zeminde: etkin dil ters çip (currentColor %16 karışımı vurgu zemininde 3.9'a düşüyordu) */
+  .modulex-alt-egik .wm-langbar { --wm-lang-active-bg: --vurguBg--; --wm-lang-active-color: --vurguText--; }
+  .modulex-alt-egik-alt { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; margin-block-start: 40px; }
+  .modulex-alt-egik-telif { color: inherit; }
+  .modulex-alt-egik-yasal { display: flex; flex-wrap: wrap; gap: 6px 16px; }
   @media (max-width: 1024px) {
-    .modulex-f9__main {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
+    .modulex-alt-egik-izgara { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
-
   @media (max-width: 768px) {
-    .modulex-f9 {
-      padding-block: 36px 16px;
-    }
-
-    .modulex-f9__main {
-      gap: 28px;
-    }
-
-    .modulex-f9__bottom {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 14px;
-    }
+    .modulex-alt-egik-izgara { grid-template-columns: minmax(0, 1fr); }
   }
 
-  @media (max-width: 480px) {
-    .modulex-f9__main {
-      grid-template-columns: minmax(0, 1fr);
-    }
-  }
-
-  /* W2: mobil tasma kontrolu */
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-alt-egik :is(.modulex-alt-egik-baslik, .modulex-alt-egik-ust, h3, h4, strong) { letter-spacing: 0; }
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-alt-egik-baslik { line-height: 1.35; }
   @media (max-width: 768px) {
-    [class*="modulex"] {
-      max-width: 100%;
-      box-sizing: border-box;
-    }
+    .modulex-alt-egik { padding-inline: 16px; }
   }
-
-  /* W2: erisilebilirlik — animasyon kapatma */
   @media (prefers-reduced-motion: reduce) {
-    [class*="modulex"],
-    [class*="modulex"] * {
-      animation: none !important;
-      transition: none !important;
-    }
-  }
-
-  /* alt uygulama çubuğu (12 Kas 2026, kullanıcı emri): app benzeri ANA MENÜ — dikey ikon+etiket, 56px,
-     aktif öğe işaretli; yalnız mobil (<=768px). Dil YOK (tek yerde: üst menü/çekmece). */
-  .modulex-f9__bar { display: none; }
-  .modulex-f9__bar-oge {
-    flex: 1 1 0;
-    min-width: 0;
-    min-height: 56px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-    color: --color--;
-    text-decoration: none;
-    opacity: 0.78;
-    transition: opacity 0.2s ease;
-  }
-  .modulex-f9__bar-oge:hover, .modulex-f9__bar-oge:focus-visible { opacity: 1; outline-color: currentColor; }
-  .modulex-f9__bar-oge .material-symbols-outlined { font-size: 22px; line-height: 1; color: --accent--; }
-  .modulex-f9__bar-ad {
-    font-size: 11px;
-    font-weight: 600;
-    line-height: 1;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 100%;
-    padding-inline: 4px;
-  }
-  .modulex-f9__bar-oge[aria-current="page"] { opacity: 1; }
-  .modulex-f9__bar-oge[aria-current="page"] .modulex-f9__bar-ad { font-weight: 700; }
-  @media (max-width: 768px) {
-    .modulex-f9 { padding-bottom: 72px; }
-    .modulex-f9__bar { display: flex; position: fixed; inset-inline: 0; bottom: 0; z-index: 9990; background: --bgcolor--; border-top: 2px solid --accent--; box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.22); padding-bottom: env(safe-area-inset-bottom, 0); }
-  }
-
-  /* Mobil uygulama kuralı (12 Kas 2026): bağlantı/çip hedefleri >= 48px; alt satır dil çipleri >= 48px (yalnız <=768px) */
-  @media (max-width: 768px) {
-    .modulex-f9__link,
-    .modulex-f9__chip {
-      display: inline-flex;
-      align-items: center;
-      min-height: 48px;
-      box-sizing: border-box;
-    }
-
-    .modulex-f9__bottom .wm-langbar li a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 48px;
-      min-height: 48px;
-    }
+    .modulex-alt-egik *, .modulex-alt-egik *::before, .modulex-alt-egik *::after { animation: none !important; transition: none !important; }
   }
 </style>

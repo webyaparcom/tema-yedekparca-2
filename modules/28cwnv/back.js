@@ -1,121 +1,142 @@
-/* footer-9 — Kurumsal footer (31 Eki 2026).
-   Sayfalar: footer-3 kalıbı (pagesetting → page listesi, dil önekli href).
-   İletişim: desing.address/phone/email; phone/email boşsa setting.phone/email. Veri yoksa satır (hepsi yoksa sütun) HİÇ basılmaz — uydurma yok.
-   Sosyal/yasal: desing.social [{ad,url}] · desing.legal [{text,href}] — boşsa yok. wmPickLang CF dinamik render'da yok → güvenli sarmal. */
-function f9Lang(v) {
+/* alt-egik — Alt Eğik — vurgu renkli, eğik üst kenarlı footer (15 Kas 2026 · mcp:webmaker/20261115-224259-bpa9 · D17).
+   Vurgu renginde, üst kenarı çapraz kesilmiş footer: büyük çağrı başlığı ve düğme eğik alanın tepesinde, altında iletişim · sayfalar · bağlantılar ve telif.
+   Üretici: scripts/modul-fabrika (aile footer) — elle düzenleme yerine tanımı değiştirip yeniden üret.
+   Veri: Sayfalar site sayfalarından (pagesetting, `maxpages`, varsayılan 6); desing: hakkinda · tel · eposta · adres · services/links [{ ad|name, url|href }] · hours [{ days, time }] · legal [{ text, href }] · social [{ ad, url }] · rightsText · cta_ad/cta_url · nlTitle/nlText/nlEmail (bülten); data [{ ad, url }] ek bağlantılar. */
+const P = "modulex-alt-egik";
+const IMG_KOK = "/img/";
+/* --- ortak ön ek (scripts/modul-fabrika/on-ek.js) — dil · güvenlik · sayı yardımcıları --- */
+const pick = (v) => {
   if (v == null) return "";
   if (typeof v !== "object") return String(v);
   if (typeof wmPickLang === "function") { try { return wmPickLang(v, json.lang) || ""; } catch (e) { /* alt satır */ } }
-  return v[json.lang] != null ? String(v[json.lang]) : (v.tr != null ? String(v.tr) : (v.en != null ? String(v.en) : ""));
-}
-function f9Esc(s) {
-  return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-}
-
-/* --- sayfalar --- */
-var f9Pagesetting = (webmakerdata.pagesetting && Array.isArray(webmakerdata.pagesetting.data))
-  ? webmakerdata.pagesetting.data.find(function (item) { return item.modulestatus && item.modulestatus.page; })
-  : null;
-var f9Html = '<li><a class="modulex-f9__link" href="' + wxLangInternalHref("") + '">@home@</a></li>';
-if (f9Pagesetting && webmakerdata[f9Pagesetting.path] && Array.isArray(webmakerdata[f9Pagesetting.path].data)) {
-  /* 31 Eki 2026: üst sınır desing.maxpages (varsayılan 8; 0 = sınırsız) — 37 sayfalık site tek sütun duvar oluyordu */
-  var f9Max = parseInt(json.desing.maxpages, 10); if (isNaN(f9Max)) f9Max = 8;
-  var f9Sayac = 0;
-  for (var f9Page of webmakerdata[f9Pagesetting.path].data) {
-    if (f9Max > 0 && f9Sayac >= f9Max) break;
-    if (f9Page.status === "play") {
-      f9Sayac++;
-      f9Html += '<li><a class="modulex-f9__link" href="' + wxLangInternalHref(f9Page.pathnext || f9Page.path || "") + '">' + f9Lang(f9Page.name) + "</a></li>";
-    }
+  return String(v[json.lang] ?? Object.values(v)[0] ?? "");
+};
+const esc = (s) => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+const medyaUrl = (v) => {
+  const s = String(v ?? "").trim();
+  if (!s || /^\s*(javascript|vbscript|file):/i.test(s)) return "";
+  if (/^data:/i.test(s)) return /^data:(image|video|audio)\//i.test(s) ? s : "";
+  if (s.startsWith("/") || /^https?:\/\//i.test(s)) return s;
+  return `${IMG_KOK}${s}`;
+};
+const href = (v) => {
+  const s = String(v ?? "").trim();
+  if (!s || /^\s*(javascript|vbscript|data):/i.test(s)) return "";
+  if (/^(https?:)?\/\//i.test(s) || /^(mailto:|tel:|#)/i.test(s)) return s;
+  return wxLangInternalHref(s);
+};
+const dogru = (v, d) => (v === undefined || v === null || v === "") ? d : !(v === false || v === "false" || v === 0 || v === "0");
+const ikonAd = (v) => String(v ?? "").trim().replace(/[^a-z0-9_]/gi, "");
+const satirlar = (s) => esc(s).replace(/\r?\n/g, "<br />");
+/* ilk dolu alan: yeni ad önce, eski kuşak şablonun adı yedek (G6 yalnız path değiştirerek takas eder) */
+const ilk = (o, ks) => {
+  for (const k of ks) {
+    const v = o == null ? undefined : o[k];
+    if (v == null || v === "") continue;
+    if (typeof v === "object" && !Array.isArray(v) && !Object.keys(v).length) continue;
+    return v;
   }
+  return "";
+};
+const metinAl = (o, ks) => pick(ilk(o, ks)).trim();
+const { desing: des = {} } = json;
+const setting = webmakerdata?.setting ?? {};
+const veri = Array.isArray(json.data) ? json.data : [];
+const dil = String(json.lang || "");
+const sayiBicim = (v, ondalik) => {
+  try { return new Intl.NumberFormat(dil || undefined, { minimumFractionDigits: ondalik, maximumFractionDigits: ondalik }).format(v); } catch (e) { return String(v); }
+};
+const ikonH = (ad, sinif) => (ad ? `<span class="${sinif} material-symbols-outlined" aria-hidden="true">${ad}</span>` : "");
+const no = (i) => String(i + 1).padStart(2, "0");
+const ctaHtml = () => {
+  const a1 = metinAl(des, ["cta_ad", "button"]); const u1 = href(ilk(des, ["cta_url", "buttonurl", "url"]));
+  const a2 = metinAl(des, ["cta2_ad"]); const u2 = href(ilk(des, ["cta2_url"]));
+  const d = (a, u, ek) => (a && u ? `<a class="${P}-dugme${ek}" href="${esc(u)}">${esc(a)}<span class="material-symbols-outlined mx-flip" aria-hidden="true">arrow_forward</span></a>` : "");
+  const ic = d(a1, u1, "") + d(a2, u2, ` ${P}-dugme--ikincil`);
+  return ic ? `<div class="${P}-cta">${ic}</div>` : "";
+};
+const basHtml = (B, ek) => {
+  if (!B.ust && !B.baslik && !B.metin && !ek) return "";
+  return `<header class="${P}-bas">`
+    + (B.ust ? `<p class="${P}-ust">${esc(B.ust)}</p>` : "")
+    + (B.baslik ? `<h2 class="${P}-baslik" id="${P}-{{id}}-b">${esc(B.baslik)}</h2>` : "")
+    + (B.metin ? `<p class="${P}-metin">${satirlar(B.metin)}</p>` : "")
+    + (ek || "")
+    + "</header>";
+};
+/* --- aile: footer --- */
+/* sayfalar: pagesetting → kategorisiz, yayında sayfalar; ilk öğe @home@ (footer-9/10 · footer-bento ile aynı) */
+const sayfa = page || {};
+let maks = parseInt(des.maxpages, 10);
+if (!Number.isFinite(maks)) maks = 6;
+const ps = Array.isArray(webmakerdata?.pagesetting?.data) ? webmakerdata.pagesetting.data.find((it) => it?.modulestatus?.page) : null;
+const sSatir = ps && Array.isArray(webmakerdata?.[ps.path]?.data) ? webmakerdata[ps.path].data : [];
+const kayitlar = [{ ad: "@home@", url: wxLangInternalHref(""), aktif: !sayfa.path }];
+for (const r of sSatir) {
+  if (maks > 0 && kayitlar.length > maks) break;
+  if (!r || r.status !== "play" || (r.category || "") !== "") continue;
+  const a = pick(r.name).trim();
+  if (a) kayitlar.push({ ad: a, url: wxLangInternalHref(r.pathnext || r.path || ""), aktif: !!sayfa.path && sayfa.path === r.path });
 }
-
-/* --- iletişim --- */
-var f9Setting = webmakerdata.setting || {};
-var f9Address = f9Lang(json.desing.address).trim();
-var f9Phone = (f9Lang(json.desing.phone).trim()) || (typeof f9Setting.phone === "string" ? f9Setting.phone.trim() : "");
-var f9Email = (f9Lang(json.desing.email).trim()) || (typeof f9Setting.email === "string" ? f9Setting.email.trim() : "");
-var f9ContactItems = "";
-if (f9Address) f9ContactItems += '<li><span class="material-symbols-outlined" aria-hidden="true">location_on</span><span>' + f9Esc(f9Address) + "</span></li>";
-if (f9Phone) f9ContactItems += '<li><span class="material-symbols-outlined" aria-hidden="true">call</span><a class="modulex-f9__link" href="tel:' + f9Phone.replace(/[^+\d]/g, "") + '" dir="ltr">' + f9Esc(f9Phone) + "</a></li>";
-if (f9Email) f9ContactItems += '<li><span class="material-symbols-outlined" aria-hidden="true">mail</span><a class="modulex-f9__link" href="mailto:' + f9Esc(f9Email) + '">' + f9Esc(f9Email) + "</a></li>";
-var f9ContactHtml = f9ContactItems
-  ? '<div class="modulex-f9__col modulex-f9__contact"><h3 class="modulex-f9__title">' + f9Esc(f9Lang(json.desing.title_contact)) + '</h3><ul class="modulex-f9__list">' + f9ContactItems + "</ul></div>"
-  : "";
-
-/* --- sosyal --- */
-var f9SocialItems = "";
-if (Array.isArray(json.desing.social)) {
-  for (var f9S of json.desing.social) {
-    var f9Ad = f9S ? f9Lang(f9S.ad || f9S.name).trim() : "";
-    var f9Url = f9S && typeof f9S.url === "string" ? f9S.url.trim() : "";
-    if (f9Ad && f9Url) f9SocialItems += '<a class="modulex-f9__chip" href="' + f9Esc(f9Url) + '" target="_blank" rel="noopener noreferrer">' + f9Esc(f9Ad) + "</a>";
-  }
-}
-var f9SocialHtml = f9SocialItems
-  ? '<div class="modulex-f9__col modulex-f9__social-col"><h3 class="modulex-f9__title">' + f9Esc(f9Lang(json.desing.title_social)) + '</h3><div class="modulex-f9__social">' + f9SocialItems + "</div></div>"
-  : "";
-
-/* --- yasal --- */
-var f9LegalItems = "";
-if (Array.isArray(json.desing.legal)) {
-  for (var f9L of json.desing.legal) {
-    var f9Text = f9L ? f9Lang(f9L.text || f9L.name).trim() : "";
-    var f9Href = f9L && typeof f9L.href === "string" ? f9L.href.trim() : (f9L && typeof f9L.url === "string" ? f9L.url.trim() : "");
-    if (f9Text && f9Href) f9LegalItems += '<li><a class="modulex-f9__link" href="' + f9Esc(wxLangInternalHref(f9Href)) + '">' + f9Esc(f9Text) + "</a></li>";
-  }
-}
-var f9LegalHtml = f9LegalItems ? '<ul class="modulex-f9__legal">' + f9LegalItems + "</ul>" : "";
-
-/* mobil alt bar (12 Kas 2026, kullanıcı emri): app benzeri ANA MENÜ — ana sayfa + play sayfaları (en çok 5 öğe, ikon+etiket).
-   Alt barda Ara/E-posta/Dil YOK — dil tek yerde: üst menü (menu-9) bandı/çekmecesi + footer alt satırı. */
-var F9_IKON = [
-  [/(ana\s?sayfa|home)/i, "home"],
-  [/\u00fc?r\u00fcn|product|katalog/i, "inventory_2"],
-  [/hak|about/i, "storefront"],
-  [/ileti?si?m|contact|temas/i, "mail"],
-  [/haber|news|blog|g\u00fcncel|guncel/i, "newspaper"],
-  [/fiyat|price|liste/i, "request_quote"],
-  [/sipari|order|satin|sat\u0131n/i, "shopping_basket"],
-  [/kargo|shipping|teslimat/i, "local_shipping"],
-  [/soru|faq|question/i, "help"],
-  [/video/i, "videocam"]
-];
-function f9Ikon(ad) {
-  for (var fi = 0; fi < F9_IKON.length; fi++) { if (F9_IKON[fi][0].test(ad)) { return F9_IKON[fi][1]; } }
-  return "menu_book";
-}
-var f9BarOgeler = [{ ad: "@home@", href: wxLangInternalHref(""), aktif: !page || !page.path }];
-if (f9Pagesetting && webmakerdata[f9Pagesetting.path] && Array.isArray(webmakerdata[f9Pagesetting.path].data)) {
-  for (var f9P of webmakerdata[f9Pagesetting.path].data) {
-    if (f9BarOgeler.length >= 5) { break; }
-    if (f9P.status !== "play") { continue; }
-    var f9Pad = f9Lang(f9P.name).trim();
-    if (!f9Pad) { continue; }
-    f9BarOgeler.push({ ad: f9Esc(f9Pad), href: wxLangInternalHref(f9P.pathnext || f9P.path || ""), aktif: page && page.path === f9P.path });
-  }
-}
-var f9Bar = f9BarOgeler.map(function (o) {
-  return '<a class="modulex-f9__bar-oge" href="' + o.href + '"' + (o.aktif ? ' aria-current="page"' : "") + '>' +
-    '<span class="material-symbols-outlined" aria-hidden="true">' + f9Ikon(o.ad) + "</span>" +
-    '<span class="modulex-f9__bar-ad">' + o.ad + "</span></a>";
-}).join("");
-var f9BarHtml = '<nav class="modulex-f9__bar" aria-label="' + (json.lang === "tr" ? "Ana men\u00fc" : "Main menu") + '">' + f9Bar + "</nav>";
-
-/* --- yerleştirme (her placeholder koşulsuz) --- */
+/* bağlantılar: desing.services (footer-10) + desing.links + data satırları [{ ad|name|text, url|href }] */
+const baglantilar = [].concat(Array.isArray(des.services) ? des.services : [], Array.isArray(des.links) ? des.links : [], veri)
+  .map((o) => ({ ad: metinAl(o, ["ad", "name", "text", "baslik", "title"]), url: href(ilk(o, ["url", "href", "link"])) }))
+  .filter((k) => k.ad);
+/* iletişim: desing → setting (footer-bento / footer-10 sırası) */
+const tel = metinAl(des, ["tel", "phone", "telefon"]) || (typeof setting.phone === "string" ? setting.phone.trim() : "");
+const posta = metinAl(des, ["eposta", "email"]) || (typeof setting.email === "string" ? setting.email.trim() : "");
+const adres = metinAl(des, ["adres", "address"]) || pick(setting.address).trim();
+const harita = href(ilk(des, ["haritaUrl", "mapUrl", "mapsUrl"])) || (adres ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(adres)}` : "");
+const iletisim = [];
+if (adres) iletisim.push({ tur: "adres", ikon: "location_on", etiket: "@contact-address@", deger: satirlar(adres), url: "" });
+if (tel) iletisim.push({ tur: "tel", ikon: "call", etiket: "@contact-phone@", deger: `<bdi dir="ltr">${esc(tel)}</bdi>`, url: `tel:${tel.replace(/[^+\d]/g, "")}`, ham: tel });
+if (posta) iletisim.push({ tur: "posta", ikon: "mail", etiket: "@contact-email@", deger: `<bdi dir="ltr">${esc(posta)}</bdi>`, url: `mailto:${posta}`, ham: posta });
+const saatler = (Array.isArray(des.hours) ? des.hours : []).map((o) => ({ gun: metinAl(o, ["days", "gun"]), saat: metinAl(o, ["time", "saat"]) })).filter((k) => k.gun && k.saat);
+const yasal = (Array.isArray(des.legal) ? des.legal : []).map((o) => ({ ad: metinAl(o, ["text", "name", "ad"]), url: href(ilk(o, ["href", "url"])) })).filter((k) => k.ad && k.url);
+const hakkinda = metinAl(des, ["hakkinda", "about", "slogan"]) || pick(setting.description).trim();
+const hakMetin = metinAl(des, ["rightsText", "copyright"]);
+const yil = String(new Date().getFullYear());
+const T = {
+  sayfa: metinAl(des, ["title_pages"]) || "@pages@", bag: metinAl(des, ["title_services", "title_links"]),
+  il: metinAl(des, ["title_contact"]) || "@contact-us@", saat: metinAl(des, ["title_hours"]) || "@opening-hours@", sosyal: metinAl(des, ["title_social"]) || "@follow-us@",
+};
+/* bülten (footer-10): başlık/metin + alıcı e-posta varsa mailto formu; nlShow:false ya da nlGonderim:"kapali" kapatır */
+const nlBaslik = metinAl(des, ["nlTitle", "bultenBaslik"]);
+const nlMetin = metinAl(des, ["nlText", "bultenMetin"]);
+const nlPosta = metinAl(des, ["nlEmail"]) || posta;
+const nlAcik = dogru(des.nlShow, true) && String(des.nlGonderim || "").trim() !== "kapali" && !!(nlBaslik || nlMetin) && !!nlPosta;
+/* --- parça üreticileri: her modül yalnız yerleşimi çizer --- */
+const bagA = (k) => (k.url ? `<a class="${P}-bag" href="${esc(k.url)}"${k.aktif ? ' aria-current="page"' : ""}>${esc(k.ad)}</a>` : `<span>${esc(k.ad)}</span>`);
+const sayfaH = (s) => `<ul class="${P}-${s || "sayfalar"}">${kayitlar.map((k) => `<li>${bagA(k)}</li>`).join("")}</ul>`;
+const bagH = (s) => (baglantilar.length ? `<ul class="${P}-${s || "baglantilar"}">${baglantilar.map((k) => `<li>${bagA(k)}</li>`).join("")}</ul>` : "");
+const ilH = (s, etiketli) => (iletisim.length ? `<ul class="${P}-${s || "iletisim"}">${iletisim.map((k) => `<li class="${P}-il ${P}-il--${k.tur}">${ikonH(k.ikon, `${P}-il-ikon`)}<span class="${P}-il-ic">${etiketli ? `<span class="${P}-il-etiket">${k.etiket}</span>` : ""}${k.url ? `<a class="${P}-bag" href="${esc(k.url)}">${k.deger}</a>` : `<span>${k.deger}</span>`}</span></li>`).join("")}</ul>` : "");
+const saatH = (s) => (saatler.length ? `<dl class="${P}-${s || "saatler"}">${saatler.map((k) => `<div class="${P}-saat"><dt>${esc(k.gun)}</dt><dd><bdi dir="ltr">${esc(k.saat)}</bdi></dd></div>`).join("")}</dl>` : "");
+const yasalH = (s) => (yasal.length ? `<ul class="${P}-${s || "yasal"}">${yasal.map((k) => `<li>${bagA(k)}</li>`).join("")}</ul>` : "");
+const sosyalH = () => (typeof wmSocialBar === "function" ? wmSocialBar({ liste: `${P}-sosyal`, oge: `${P}-sosyal-li`, baglanti: `${P}-sosyal-a`, aria: "@follow-us@" }) : "");
+const blok = (baslik, ic, s) => (ic ? `<div class="${P}-blok${s ? ` ${P}-blok--${s}` : ""}">${baslik ? `<h2 class="${P}-bbaslik">${esc(baslik)}</h2>` : ""}${ic}</div>` : "");
+const logoH = (s) => `<a class="${P}-${s || "logo"}" href="/{{lang}}/" aria-label="@home@ - {{web-name}}">${String(setting.logo || "").trim() ? `<img src="/img/{{logo}}" alt="{{web-name}}" loading="lazy" decoding="async" />` : `<span class="${P}-ad">{{web-name}}</span>`}</a>`;
+const hakkindaH = (s) => (hakkinda ? `<p class="${P}-${s || "hakkinda"}">${satirlar(hakkinda)}</p>` : "");
+const telifH = (s) => `<p class="${P}-${s || "telif"}"><span>&copy; ${yil} {{web-name}}</span><span>${hakMetin ? esc(hakMetin) : "@all-rights@"}</span></p>`;
+const dilH = () => `<div class="${P}-dil">{{langbar}}</div>`;
+const yukariH = (s) => `<a class="${P}-${s || "yukari"}" href="#" aria-label="@back-to-top@"><span class="material-symbols-outlined" aria-hidden="true">arrow_upward</span></a>`;
+const bultenH = (s) => (nlAcik ? `<form class="${P}-${s || "bulten"}" data-fb-form data-eposta="${esc(nlPosta)}" data-konu="${esc(nlBaslik)}" data-ok="@form-sent@" data-hata="@form-error@" action="mailto:${esc(nlPosta)}" method="post" enctype="text/plain">`
+  + `<label class="${P}-nl-etiket" for="${P}-{{id}}-nl">${esc(metinAl(des, ["nlLabel"])) || "@contact-email@"}</label>`
+  + `<span class="${P}-nl-satir"><input class="${P}-nl-girdi" id="${P}-{{id}}-nl" name="email" type="email" inputmode="email" autocomplete="email" required />`
+  + `<button type="submit" class="${P}-nl-dugme">${esc(metinAl(des, ["nlBtn"])) || "@sent@"}<span class="material-symbols-outlined mx-flip" aria-hidden="true">arrow_forward</span></button></span>`
+  + `<span class="${P}-nl-durum" role="status" aria-live="polite"></span></form>` : "");
+const bultenYazi = (s) => (nlAcik ? `<div class="${P}-${s || "nl-yazi"}">${nlBaslik ? `<h2 class="${P}-nl-baslik">${esc(nlBaslik)}</h2>` : ""}${nlMetin ? `<p class="${P}-nl-metin">${esc(nlMetin)}</p>` : ""}</div>` : "");
+/* --- modül: alt-egik --- */
+const kart = function () { return ""; };
+const sar = (ic, A, B) => `<div class="${P}-govde"><div class="${P}-tepe">${B.baslik ? `<h2 class="${P}-cbaslik">${esc(B.baslik)}</h2>` : `<div class="${P}-marka">${logoH()}${hakkindaH()}</div>`}${ctaHtml()}</div><div class="${P}-izgara">${blok(T.il, ilH())}${blok(T.sayfa, sayfaH())}${blok(T.bag, bagH())}<div class="${P}-blok">${sosyalH()}${dilH()}</div></div><div class="${P}-alt">${telifH()}${yasalH()}</div></div>`;
+const B = { ust: metinAl(des, ["ust","kicker"]), baslik: metinAl(des, ["baslik","ctaBaslik"]), metin: metinAl(des, ["metin","ctaMetin"]) };
+/* veri yoksa gövde hiç kurulmaz (sarmalayıcı boş listeye dokunmaz) */
+const BOS = false;
+const govde = BOS ? "" : sar(kayitlar.map((k, i) => kart(k, i, kayitlar.length, kayitlar)).join(""), kayitlar, B);
+const bas = "";
+const sinif = (bas || B.ust || B.baslik || B.metin ? "" : ` ${P}--bassiz`);
 html = html
-  .replace(/{{barhtml}}/g, f9BarHtml)
-  .replace(/{{html}}/g, f9Html)
-  .replace(/{{contacthtml}}/g, f9ContactHtml)
-  .replace(/{{socialhtml}}/g, f9SocialHtml)
-  .replace(/{{legalhtml}}/g, f9LegalHtml)
-  .replace(/{{year}}/g, String(new Date().getFullYear()));
-/* 31 Eki 2026: sütun sayısı sınıfı — iletişim/sosyal gizliyse grid 4 yerine 2/3 sütun olur (boş hücre kalmaz) */
-var f9Cols = 2 + (f9ContactHtml ? 1 : 0) + (f9SocialHtml ? 1 : 0);
-html = html.replace('class="modulex-f9__main"', 'class="modulex-f9__main modulex-f9__main--c' + f9Cols + '"');
-if (!f9Lang(json.desing.about).trim()) {
-  html = html.replace(/<p class="modulex-f9__about">[\s\S]*?<\/p>\s*/, "");
-}
-if (json.desing.logo_plate === true || json.desing.logo_plate === "true") {
-  html = html.replace('class="modulex-f9__logo"', 'class="modulex-f9__logo modulex-f9__logo--plate"');
-}
+  .replaceAll("{{fbsinif}}", () => sinif)
+  .replaceAll("{{fbetiket}}", () => (B.baslik && bas ? `aria-labelledby="${P}-{{id}}-b"` : ""))
+  .replaceAll("{{fbbas}}", () => bas)
+  .replaceAll("{{fbgovde}}", () => govde);
+if (BOS) html = "";
